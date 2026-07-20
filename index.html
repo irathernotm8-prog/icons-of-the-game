@@ -5,578 +5,511 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Icons of the Game · 2000–2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-  /* ── TOKENS ─────────────────────────────── */
-  :root {
-    --gold:       #C9A84C;
-    --gold-light: #E8C96A;
-    --gold-dim:   #8B6E2A;
-    --white:      #FFFFFF;
-    --off-white:  #F7F3EC;
-    --ink:        #0A0A0A;
-    --ink-mid:    #1A1A1A;
-    --ink-soft:   #2C2C2C;
-    --mist:       #E8E2D6;
-    --card-bg:    #FAFAF7;
-    --no-img-bg:  #1A1A1A;
-
-    --pos-gk:  #1A4A6B;
-    --pos-def: #1B5E20;
-    --pos-mid: #4A3000;
-    --pos-fwd: #7B0D0D;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--off-white);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    overflow-x: hidden;
-  }
-
-  /* ── HEADER ─────────────────────────────── */
-  header {
-    background: var(--ink);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 2px solid var(--gold);
-  }
-
-  .header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 32px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .site-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--gold);
-    letter-spacing: 3px;
-    white-space: nowrap;
-  }
-
-  .site-title span {
-    color: rgba(201,168,76,0.45);
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-left: 10px;
-    vertical-align: middle;
-  }
-
-  /* ── SEARCH + FILTERS ───────────────────── */
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex: 1;
-    max-width: 680px;
-  }
-
-  .search-wrap {
-    position: relative;
-    flex: 1;
-  }
-
-  .search-wrap svg {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gold-dim);
-    pointer-events: none;
-  }
-
-  #search {
-    width: 100%;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: var(--white);
-    padding: 9px 14px 9px 40px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color .2s;
-  }
-
-  #search::placeholder { color: rgba(255,255,255,0.3); }
-  #search:focus { border-color: var(--gold); }
-
-  .filter-group {
-    display: flex;
-    gap: 6px;
-  }
-
-  .filter-btn {
-    background: transparent;
-    border: 1px solid rgba(201,168,76,0.3);
-    color: rgba(255,255,255,0.5);
-    padding: 7px 14px;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
-  }
-
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--ink);
-  }
-
-  .count-badge {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: rgba(201,168,76,0.5);
-    white-space: nowrap;
-    min-width: 60px;
-    text-align: right;
-  }
-
-  /* ── HERO ───────────────────────────────── */
-  .hero {
-    background: var(--ink);
-    padding: 72px 32px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,168,76,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 12px;
-    letter-spacing: 5px;
-    color: var(--gold-dim);
-    margin-bottom: 16px;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 7vw, 88px);
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .hero-title .gold { color: var(--gold); }
-
-  .hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.4);
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-top: 16px;
-  }
-
-  .hero-rule {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 24px auto 0;
-  }
-
-  /* ── GRID ───────────────────────────────── */
-  .grid-wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 32px 80px;
-  }
-
-  .player-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 24px;
-  }
-
-  /* ── PLAYER CARD ────────────────────────── */
-  .player-card {
-    background: var(--white);
-    border: 1px solid var(--mist);
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .player-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 48px rgba(0,0,0,0.12), 0 0 0 1px var(--gold);
-    border-color: var(--gold);
-  }
-
-  /* position stripe at top */
-  .card-stripe {
-    height: 3px;
-    width: 100%;
-  }
-
-  .stripe-GK  { background: var(--pos-gk); }
-  .stripe-DEF { background: var(--pos-def); }
-  .stripe-MID { background: var(--pos-mid); }
-  .stripe-FWD { background: var(--pos-fwd); }
-
-  .card-img-wrap {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: var(--no-img-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .card-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* placeholder when no image */
-  .card-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(160deg, #141414 0%, #1e1e1e 100%);
-  }
-
-  .placeholder-initials {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    color: rgba(201,168,76,0.2);
-    line-height: 1;
-    letter-spacing: 2px;
-  }
-
-  .placeholder-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: rgba(201,168,76,0.2);
-    text-transform: uppercase;
-  }
-
-  .card-body {
-    padding: 14px 14px 16px;
-    border-top: 1px solid var(--mist);
-  }
-
-  .card-pos-badge {
-    display: inline-block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    padding: 2px 7px;
-    margin-bottom: 6px;
-    color: var(--white);
-  }
-
-  .badge-GK  { background: var(--pos-gk); }
-  .badge-DEF { background: var(--pos-def); }
-  .badge-MID { background: var(--pos-mid); }
-  .badge-FWD { background: var(--pos-fwd); }
-
-  .card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-
-  .card-nat {
-    font-size: 11px;
-    color: #888;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
-  .card-peak {
-    margin-top: 8px;
-    font-size: 11px;
-    color: var(--gold-dim);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-
-  /* hidden cards */
-  .player-card.hidden { display: none; }
-
-  /* ── DETAIL MODAL ───────────────────────── */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease;
-    backdrop-filter: blur(4px);
-  }
-
-  .modal-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .modal {
-    background: var(--white);
-    max-width: 780px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    position: relative;
-    transform: translateY(16px);
-    transition: transform .25s ease;
-  }
-
-  .modal-overlay.open .modal {
-    transform: translateY(0);
-  }
-
-  .modal-img-col {
-    background: var(--ink);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    position: relative;
-    min-height: 380px;
-  }
-
-  .modal-img-col img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .modal-no-img {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: linear-gradient(160deg, #111 0%, #1e1e1e 100%);
-    padding: 40px;
-    min-height: 380px;
-  }
-
-  .modal-no-img .big-initial {
-    font-family: 'Playfair Display', serif;
-    font-size: 96px;
-    font-weight: 900;
-    color: rgba(201,168,76,0.15);
-    line-height: 1;
-  }
-
-  .modal-no-img .coming-soon {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: rgba(201,168,76,0.3);
-    text-transform: uppercase;
-  }
-
-  .modal-content-col {
-    padding: 40px 36px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .modal-pos-badge {
-    display: inline-block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    padding: 3px 10px;
-    color: var(--white);
-    margin-bottom: 12px;
-    align-self: flex-start;
-  }
-
-  .modal-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 4vw, 34px);
-    font-weight: 900;
-    color: var(--ink);
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-
-  .modal-nat {
-    font-size: 13px;
-    color: #888;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 28px;
-  }
-
-  .modal-rule {
-    width: 40px;
-    height: 2px;
-    background: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  .modal-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 28px;
-  }
-
-  .stat-item {}
-
-  .stat-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #AAA;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-
-  .stat-value {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-soft);
-  }
-
-  .stat-value.gold { color: var(--gold-dim); }
-
-  .modal-notes {
-    border-top: 1px solid var(--mist);
-    padding-top: 20px;
-    margin-top: auto;
-  }
-
-  .notes-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #AAA;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-
-  .notes-text {
-    font-size: 14px;
-    line-height: 1.65;
-    color: #555;
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--white);
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
-    transition: background .15s;
-  }
-
-  .modal-close:hover { background: rgba(255,255,255,0.2); }
-
-  /* ── EMPTY STATE ────────────────────────── */
-  .empty-state {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 32px;
-    text-align: center;
-    color: #AAA;
-    gap: 12px;
-  }
-
-  .empty-state.show { display: flex; }
-
-  .empty-icon {
-    font-size: 48px;
-    opacity: .3;
-  }
-
-  .empty-text {
-    font-size: 15px;
-    color: #AAA;
-  }
-
-  /* ── NO IMAGE STRIP ─────────────────────── */
-  .modal-gold-stripe {
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
-  }
-
-  /* ── SCROLLBAR ──────────────────────────── */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--off-white); }
-  ::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 3px; }
-
-  /* ── RESPONSIVE ─────────────────────────── */
-  @media (max-width: 640px) {
-    .hero { padding: 48px 20px 40px; }
-    .grid-wrap { padding: 24px 16px 60px; }
-    .player-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-    .controls { flex-wrap: wrap; }
-    .filter-group { flex-wrap: wrap; }
-    .modal { grid-template-columns: 1fr; }
-    .modal-img-col { min-height: 260px; }
-    .header-inner { padding: 0 16px; }
-  }
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dim:   #8B6E2A;
+  --gold-pale:  #F5EDD6;
+  --white:      #FFFFFF;
+  --off-white:  #F4F0E8;
+  --ink:        #0A0A0A;
+  --ink-soft:   #2C2C2C;
+  --mist:       #E2DAC8;
+  --pos-gk:     #1A4A6B;
+  --pos-def:    #1B5E20;
+  --pos-mid:    #5C3D00;
+  --pos-fwd:    #7B0D0D;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--off-white);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--ink);
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.site-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.site-title em {
+  color: rgba(201,168,76,0.35);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+.search-wrap svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(201,168,76,0.4);
+  pointer-events: none;
+  width: 15px;
+  height: 15px;
+}
+#search {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,168,76,0.25);
+  color: #fff;
+  padding: 8px 12px 8px 36px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .2s;
+  border-radius: 0;
+}
+#search::placeholder { color: rgba(255,255,255,0.25); }
+#search:focus { border-color: var(--gold); }
+
+.filter-group { display: flex; gap: 4px; }
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(255,255,255,0.4);
+  padding: 6px 13px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: rgba(201,168,76,0.5); color: rgba(255,255,255,0.7); }
+.filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+.count-label {
+  font-size: 11px;
+  color: rgba(201,168,76,0.4);
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 80px 32px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--off-white));
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 40% at 50% 100%, rgba(201,168,76,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--gold-dim);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: .95;
+  margin-bottom: 4px;
+}
+.hero-title .gold { color: var(--gold); font-style: italic; }
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1.5px;
+  margin-top: 20px;
+  font-weight: 300;
+}
+.hero-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px auto 0;
+  opacity: .7;
+}
+
+/* ── GRID ── */
+.grid-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 32px 100px;
+}
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 20px;
+}
+
+/* ── PLAYER CARD ──
+   Key change: white card, image on transparent/white bg,
+   gold accent only in the stripe and badge */
+.player-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 56px rgba(0,0,0,.1), 0 0 0 1px var(--gold);
+  border-color: var(--gold);
+}
+.card-stripe {
+  height: 3px;
+  flex-shrink: 0;
+}
+.stripe-GK  { background: var(--pos-gk); }
+.stripe-DEF { background: var(--pos-def); }
+.stripe-MID { background: var(--pos-mid); }
+.stripe-FWD { background: var(--pos-fwd); }
+
+/* Image wrapper: white background so transparent PNGs look clean */
+.card-img-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--white);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* contain preserves transparent card shape */
+  object-position: bottom;
+  display: block;
+}
+
+/* Placeholder for players without a card image */
+.card-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--gold-pale) 0%, #ede5d0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.placeholder-initials {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: rgba(139,110,42,0.2);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.placeholder-pos {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(139,110,42,0.35);
+}
+
+.card-body {
+  padding: 12px 14px 15px;
+  border-top: 1px solid var(--mist);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-pos-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 2px 7px;
+  color: var(--white);
+  align-self: flex-start;
+  margin-bottom: 2px;
+}
+.badge-GK  { background: var(--pos-gk); }
+.badge-DEF { background: var(--pos-def); }
+.badge-MID { background: var(--pos-mid); }
+.badge-FWD { background: var(--pos-fwd); }
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.card-nat {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+.card-peak {
+  font-size: 11px;
+  color: var(--gold-dim);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.player-card.hidden { display: none; }
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 32px;
+  text-align: center;
+  gap: 12px;
+  color: #bbb;
+}
+.empty-state.show { display: flex; }
+.empty-state svg { opacity: .25; width: 48px; height: 48px; }
+.empty-state p { font-size: 15px; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,5,5,0.8);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+  backdrop-filter: blur(6px);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  position: relative;
+  transform: scale(.97) translateY(12px);
+  transition: transform .2s;
+  box-shadow: 0 40px 100px rgba(0,0,0,.4);
+}
+.modal-overlay.open .modal { transform: scale(1) translateY(0); }
+
+/* Left col: transparent-bg card image */
+.modal-img-col {
+  background: var(--white);
+  border-right: 1px solid var(--mist);
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  position: relative;
+}
+.modal-img-col img {
+  width: 100%;
+  flex: 1;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  padding: 12px 12px 0;
+}
+.modal-img-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--gold-pale), #e8dfc8);
+  gap: 10px;
+  padding: 40px;
+}
+.modal-img-placeholder .big-init {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(139,110,42,0.18);
+  line-height: 1;
+}
+.modal-img-placeholder .add-card {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(139,110,42,0.4);
+  text-transform: uppercase;
+}
+.modal-gold-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
+}
+
+/* Right col */
+.modal-content {
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+}
+.modal-pos-badge {
+  display: inline-flex;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 3px 10px;
+  color: var(--white);
+  align-self: flex-start;
+  margin-bottom: 14px;
+}
+.modal-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.modal-nat-line {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+.modal-rule {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+.modal-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+  margin-bottom: 30px;
+}
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: #bbb;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.3;
+}
+.stat-value.accent { color: var(--gold-dim); }
+.modal-notes {
+  border-top: 1px solid var(--mist);
+  padding-top: 20px;
+  margin-top: auto;
+}
+.notes-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(0,0,0,0.06);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #999;
+  transition: background .15s, color .15s;
+  z-index: 10;
+}
+.modal-close:hover { background: rgba(0,0,0,0.1); color: var(--ink); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .header-inner { padding: 0 16px; }
+  .site-title em { display: none; }
+  .hero { padding: 52px 20px 44px; }
+  .grid-wrap { padding: 28px 16px 60px; }
+  .player-grid { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 14px; }
+  .modal { grid-template-columns: 1fr; }
+  .modal-img-col { min-height: 260px; border-right: none; border-bottom: 1px solid var(--mist); }
+  .controls { flex-wrap: wrap; }
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--mist); }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="site-title">Icons of the Game <span>2000–2026</span></div>
+    <div class="site-title">Icons of the Game <em>2000 – 2026</em></div>
     <div class="controls">
       <div class="search-wrap">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="search" placeholder="Search players…" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="Search by name or nation…" autocomplete="off">
       </div>
       <div class="filter-group">
         <button class="filter-btn active" data-pos="ALL">All</button>
@@ -586,57 +519,57 @@
         <button class="filter-btn" data-pos="FWD">FWD</button>
       </div>
     </div>
-    <div class="count-badge" id="count-badge">103 players</div>
+    <div class="count-label" id="count-label">120 players</div>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
+  <div class="hero-glow"></div>
   <p class="hero-eyebrow">The Definitive Collection</p>
   <h1 class="hero-title">Icons of <span class="gold">the Game</span></h1>
-  <p class="hero-sub">Every legendary player from the golden era of modern football</p>
-  <div class="hero-rule"></div>
+  <p class="hero-sub">Every legendary player of the modern era · 2000 – 2026</p>
+  <div class="hero-divider"></div>
 </section>
 
-<!-- GRID -->
 <div class="grid-wrap">
   <div class="player-grid" id="player-grid"></div>
   <div class="empty-state" id="empty-state">
-    <div class="empty-icon">⚽</div>
-    <div class="empty-text">No players match your search</div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>No players match your search</p>
   </div>
 </div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal">
-    <div class="modal-img-col" id="modal-img-col"></div>
-    <div class="modal-content-col">
+    <div class="modal-img-col" id="modal-img-col">
+      <div class="modal-gold-bar"></div>
+    </div>
+    <div class="modal-content">
       <button class="modal-close" id="modal-close">✕</button>
       <span class="modal-pos-badge" id="modal-badge"></span>
       <h2 class="modal-name" id="modal-name"></h2>
-      <p class="modal-nat" id="modal-nat"></p>
+      <p class="modal-nat-line" id="modal-nat"></p>
       <div class="modal-rule"></div>
       <div class="modal-stats">
-        <div class="stat-item">
+        <div>
           <div class="stat-label">Peak Years</div>
-          <div class="stat-value gold" id="modal-peak"></div>
+          <div class="stat-value accent" id="modal-peak"></div>
         </div>
-        <div class="stat-item">
+        <div>
           <div class="stat-label">Best Club</div>
           <div class="stat-value" id="modal-club"></div>
         </div>
-        <div class="stat-item">
+        <div>
           <div class="stat-label">Position</div>
           <div class="stat-value" id="modal-pos"></div>
         </div>
-        <div class="stat-item">
+        <div>
           <div class="stat-label">Nationality</div>
           <div class="stat-value" id="modal-nat2"></div>
         </div>
       </div>
       <div class="modal-notes">
-        <div class="notes-label">Career Highlights</div>
+        <div class="stat-label" style="margin-bottom:8px">Career Highlights</div>
         <p class="notes-text" id="modal-notes"></p>
       </div>
     </div>
@@ -652,7 +585,6 @@ const PLAYERS = [
     "peak_years": "2002–2007",
     "best_club": "Juventus",
     "notes": "Italy's all-time great; 2006 World Cup winner",
-    "image": "image43.png",
     "image_file": "gianluigi_buffon.png"
   },
   {
@@ -661,8 +593,7 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2008–2012",
     "best_club": "Real Madrid",
-    "notes": "Two Euros, one World Cup with Spain",
-    "image": "image17.png",
+    "notes": "Two Euros, one World Cup; hands of God",
     "image_file": "iker_casillas.png"
   },
   {
@@ -671,8 +602,7 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2013–2016",
     "best_club": "Bayern Munich",
-    "notes": "Redefined sweeper-keeper; 2014 WC winner",
-    "image": "image50.png",
+    "notes": "Redefined the sweeper-keeper; 2014 WC winner",
     "image_file": "manuel_neuer.png"
   },
   {
@@ -681,8 +611,7 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2005–2011",
     "best_club": "Manchester United",
-    "notes": "Champions League winner 2008",
-    "image": null,
+    "notes": "UCL 2008 winner; world's best in his peak",
     "image_file": null
   },
   {
@@ -692,17 +621,6 @@ const PLAYERS = [
     "peak_years": "2004–2012",
     "best_club": "Chelsea",
     "notes": "Premier League's most dominant GK of his era",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Víctor Valdés",
-    "nationality": "Spanish",
-    "position": "GK",
-    "peak_years": "2004–2012",
-    "best_club": "Barcelona",
-    "notes": "Three consecutive CL titles with Barça",
-    "image": null,
     "image_file": null
   },
   {
@@ -711,8 +629,7 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2017–2024",
     "best_club": "Real Madrid",
-    "notes": "Champions League winner 2022; Golden Glove WC 2018",
-    "image": "image9.png",
+    "notes": "UCL 2022 winner; Golden Glove WC 2018",
     "image_file": "thibaut_courtois.png"
   },
   {
@@ -721,8 +638,7 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2011–2019",
     "best_club": "Manchester United",
-    "notes": "Kept United afloat; best shot-stopper of his generation",
-    "image": "image19.png",
+    "notes": "Kept United afloat for a decade; best shot-stopper of his gen",
     "image_file": "david_de_gea.png"
   },
   {
@@ -731,8 +647,16 @@ const PLAYERS = [
     "position": "GK",
     "peak_years": "2003–2007",
     "best_club": "AC Milan",
-    "notes": "Champions League winner 2003 & 2007",
-    "image": null,
+    "notes": "UCL 2003 & 2007 winner with Milan",
+    "image_file": null
+  },
+  {
+    "name": "Víctor Valdés",
+    "nationality": "Spanish",
+    "position": "GK",
+    "peak_years": "2004–2012",
+    "best_club": "Barcelona",
+    "notes": "Three consecutive UCL titles with Barça",
     "image_file": null
   },
   {
@@ -741,8 +665,7 @@ const PLAYERS = [
     "position": "RB",
     "peak_years": "2000–2006",
     "best_club": "AC Milan",
-    "notes": "Greatest RB ever; two WC finals",
-    "image": "image2.png",
+    "notes": "Greatest RB ever; two World Cup finals",
     "image_file": "cafu.png"
   },
   {
@@ -752,7 +675,6 @@ const PLAYERS = [
     "peak_years": "2008–2016",
     "best_club": "Barcelona",
     "notes": "Most decorated player in football history",
-    "image": "image4.png",
     "image_file": "dani_alves.png"
   },
   {
@@ -761,19 +683,8 @@ const PLAYERS = [
     "position": "RB",
     "peak_years": "2010–2014",
     "best_club": "Bayern Munich",
-    "notes": "2014 WC winner; tactically perfect captain",
-    "image": "image47.png",
+    "notes": "2014 WC winner; the most complete fullback ever",
     "image_file": "philipp_lahm.png"
-  },
-  {
-    "name": "Serge Gnabry",
-    "nationality": "German",
-    "position": "RW",
-    "peak_years": "2019–2023",
-    "best_club": "Bayern Munich",
-    "notes": "Four hat-tricks in CL in two seasons",
-    "image": "image40.png",
-    "image_file": "serge_gnabry.png"
   },
   {
     "name": "Joshua Kimmich",
@@ -781,8 +692,25 @@ const PLAYERS = [
     "position": "RB",
     "peak_years": "2019–2024",
     "best_club": "Bayern Munich",
-    "notes": "Modern box-to-box hybrid RB/CM",
-    "image": null,
+    "notes": "Modern hybrid RB/CM; elite in both roles",
+    "image_file": null
+  },
+  {
+    "name": "Achraf Hakimi",
+    "nationality": "Moroccan",
+    "position": "RB",
+    "peak_years": "2021–2026",
+    "best_club": "PSG",
+    "notes": "One of the fastest and most dynamic RBs in modern football",
+    "image_file": null
+  },
+  {
+    "name": "Trent Alexander-Arnold",
+    "nationality": "English",
+    "position": "RB",
+    "peak_years": "2019–2026",
+    "best_club": "Liverpool",
+    "notes": "Revolutionary passing RB; UCL & PL winner",
     "image_file": null
   },
   {
@@ -791,8 +719,7 @@ const PLAYERS = [
     "position": "CB",
     "peak_years": "2004–2008",
     "best_club": "Real Madrid",
-    "notes": "2006 Ballon d'Or; WC-winning captain",
-    "image": null,
+    "notes": "2006 Ballon d'Or; World Cup-winning captain",
     "image_file": null
   },
   {
@@ -801,8 +728,7 @@ const PLAYERS = [
     "position": "CB",
     "peak_years": "2004–2012",
     "best_club": "Barcelona",
-    "notes": "Warrior captain of Spain's golden era",
-    "image": "image25.png",
+    "notes": "Warrior captain of Spain's golden generation",
     "image_file": "carles_puyol.png"
   },
   {
@@ -811,8 +737,7 @@ const PLAYERS = [
     "position": "CB",
     "peak_years": "2002–2011",
     "best_club": "Manchester United",
-    "notes": "Premier League's best CB of his era",
-    "image": "image37.png",
+    "notes": "Premier League's most composed CB of his era",
     "image_file": "rio_ferdinand.png"
   },
   {
@@ -821,8 +746,7 @@ const PLAYERS = [
     "position": "CB",
     "peak_years": "2004–2012",
     "best_club": "Chelsea",
-    "notes": "Premier League's most dominant centre back",
-    "image": "image49.png",
+    "notes": "Five PL titles; hardest defender of his generation",
     "image_file": "john_terry.png"
   },
   {
@@ -832,7 +756,6 @@ const PLAYERS = [
     "peak_years": "2012–2022",
     "best_club": "PSG / Chelsea",
     "notes": "World-class for 15 years; WC finalist 2022",
-    "image": "image14.png",
     "image_file": "thiago_silva.png"
   },
   {
@@ -842,7 +765,6 @@ const PLAYERS = [
     "peak_years": "2008–2021",
     "best_club": "Real Madrid",
     "notes": "Four UCL, two Euros, one WC; 185 caps",
-    "image": "image35.png",
     "image_file": "sergio_ramos.png"
   },
   {
@@ -852,7 +774,6 @@ const PLAYERS = [
     "peak_years": "2018–2022",
     "best_club": "Liverpool",
     "notes": "Transformed Liverpool's defence; UCL & PL winner",
-    "image": "image30.png",
     "image_file": "virgil_van_dijk.png"
   },
   {
@@ -861,9 +782,8 @@ const PLAYERS = [
     "position": "CB",
     "peak_years": "2018–2022",
     "best_club": "Real Madrid",
-    "notes": "Four UCL + WC 2018 winner",
-    "image": "image11.png",
-    "image_file": "raphaël_varane.png"
+    "notes": "Four UCL titles; WC 2018 winner",
+    "image_file": "raphael_varane.png"
   },
   {
     "name": "Giorgio Chiellini",
@@ -872,7 +792,6 @@ const PLAYERS = [
     "peak_years": "2012–2021",
     "best_club": "Juventus",
     "notes": "Defensive rock; nine Serie A titles",
-    "image": "image38.png",
     "image_file": "giorgio_chiellini.png"
   },
   {
@@ -882,8 +801,7 @@ const PLAYERS = [
     "peak_years": "2006–2014",
     "best_club": "Manchester United",
     "notes": "Feared by every striker; five PL titles",
-    "image": "image6.png",
-    "image_file": "nemanja_vidić.png"
+    "image_file": "nemanja_vidic.png"
   },
   {
     "name": "Kalidou Koulibaly",
@@ -892,7 +810,6 @@ const PLAYERS = [
     "peak_years": "2016–2022",
     "best_club": "Napoli",
     "notes": "Best African CB of his generation",
-    "image": "image29.png",
     "image_file": "kalidou_koulibaly.png"
   },
   {
@@ -902,8 +819,25 @@ const PLAYERS = [
     "peak_years": "2012–2019",
     "best_club": "Borussia Dortmund",
     "notes": "2014 WC winner; UCL finalist twice",
-    "image": "image45.png",
     "image_file": "mats_hummels.png"
+  },
+  {
+    "name": "Franz Beckenbauer",
+    "nationality": "German",
+    "position": "CB",
+    "peak_years": "2000–2002",
+    "best_club": "Bayern Munich",
+    "notes": "Footballing icon; libero pioneer across eras",
+    "image_file": "franz_beckenbauer.png"
+  },
+  {
+    "name": "David Luiz",
+    "nationality": "Brazilian",
+    "position": "CB",
+    "peak_years": "2012–2019",
+    "best_club": "Chelsea / PSG",
+    "notes": "Unorthodox brilliance; UCL 2012 winner",
+    "image_file": "david_luiz.png"
   },
   {
     "name": "Roberto Carlos",
@@ -911,8 +845,7 @@ const PLAYERS = [
     "position": "LB",
     "peak_years": "2000–2006",
     "best_club": "Real Madrid",
-    "notes": "Greatest attacking LB ever; free kick icon",
-    "image": "image26.png",
+    "notes": "Greatest attacking LB ever; free kick deity",
     "image_file": "roberto_carlos.png"
   },
   {
@@ -921,8 +854,7 @@ const PLAYERS = [
     "position": "LB",
     "peak_years": "2004–2012",
     "best_club": "Chelsea",
-    "notes": "Best LB England ever produced",
-    "image": "image44.png",
+    "notes": "Best LB England ever produced; three PL titles",
     "image_file": "ashley_cole.png"
   },
   {
@@ -931,8 +863,7 @@ const PLAYERS = [
     "position": "LB",
     "peak_years": "2006–2014",
     "best_club": "Manchester United",
-    "notes": "UCL winner; dominant for 8 years at United",
-    "image": null,
+    "notes": "UCL winner; dominant one-club man",
     "image_file": null
   },
   {
@@ -941,9 +872,8 @@ const PLAYERS = [
     "position": "LB",
     "peak_years": "2012–2018",
     "best_club": "Real Madrid",
-    "notes": "Four UCL titles; most decorated LB of era",
-    "image": "image10.png",
-    "image_file": "marcelo.png"
+    "notes": "Four UCL titles; most decorated LB of his era",
+    "image_file": null
   },
   {
     "name": "Jordi Alba",
@@ -952,7 +882,6 @@ const PLAYERS = [
     "peak_years": "2012–2022",
     "best_club": "Barcelona",
     "notes": "Spain's creative LB; two Euros winner",
-    "image": "image18.png",
     "image_file": "jordi_alba.png"
   },
   {
@@ -962,7 +891,6 @@ const PLAYERS = [
     "peak_years": "2018–2022",
     "best_club": "Liverpool",
     "notes": "UCL and PL winner; best LB in world 2019",
-    "image": "image1.png",
     "image_file": "andrew_robertson.png"
   },
   {
@@ -971,8 +899,7 @@ const PLAYERS = [
     "position": "DM",
     "peak_years": "2000–2006",
     "best_club": "Real Madrid",
-    "notes": "Invented the 'Makélélé role'; defensive anchor",
-    "image": "image41.png",
+    "notes": "Invented the 'Makélélé role'; the original destroyer",
     "image_file": "claude_makelele.png"
   },
   {
@@ -981,8 +908,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2000–2005",
     "best_club": "Arsenal",
-    "notes": "Invincibles captain; physical & technical midfield",
-    "image": "image7.png",
+    "notes": "Invincibles captain; physical and technical perfection",
     "image_file": "patrick_vieira.png"
   },
   {
@@ -992,7 +918,6 @@ const PLAYERS = [
     "peak_years": "2008–2016",
     "best_club": "Real Madrid",
     "notes": "Perfect passer; WC & two Euros winner",
-    "image": "image5.png",
     "image_file": "xabi_alonso.png"
   },
   {
@@ -1001,8 +926,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2006–2015",
     "best_club": "Juventus",
-    "notes": "Regista master; 2006 WC winner",
-    "image": "image13.png",
+    "notes": "The regista; 2006 WC winner; most elegant midfielder ever",
     "image_file": "andrea_pirlo.png"
   },
   {
@@ -1012,7 +936,6 @@ const PLAYERS = [
     "peak_years": "2009–2022",
     "best_club": "Barcelona",
     "notes": "Two Euros, one WC; tactical heart of Spain",
-    "image": "image36.png",
     "image_file": "sergio_busquets.png"
   },
   {
@@ -1021,8 +944,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2016–2022",
     "best_club": "Chelsea",
-    "notes": "Two PL titles, UCL, WC 2018; played everywhere",
-    "image": "image16.png",
+    "notes": "Two PL titles, UCL, WC 2018; covered every blade of grass",
     "image_file": "ngolo_kante.png"
   },
   {
@@ -1031,9 +953,8 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2016–2022",
     "best_club": "Real Madrid",
-    "notes": "2018 Ballon d'Or; broke Messi/Ronaldo duopoly",
-    "image": "image31.png",
-    "image_file": "luka_modrić.png"
+    "notes": "2018 Ballon d'Or; broke the Messi/Ronaldo duopoly",
+    "image_file": "luka_modric.png"
   },
   {
     "name": "Toni Kroos",
@@ -1041,8 +962,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2013–2024",
     "best_club": "Real Madrid",
-    "notes": "Four UCL titles; 2014 WC winner; never lost form",
-    "image": "image21.png",
+    "notes": "Four UCL titles; 2014 WC winner; perfect passing machine",
     "image_file": "toni_kroos.png"
   },
   {
@@ -1051,8 +971,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2000–2011",
     "best_club": "Manchester United",
-    "notes": "One of finest passers English football produced",
-    "image": "image46.png",
+    "notes": "One of the finest passers English football ever produced",
     "image_file": "paul_scholes.png"
   },
   {
@@ -1061,8 +980,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2005–2015",
     "best_club": "Liverpool",
-    "notes": "UCL 2005; iconic one-club career",
-    "image": "image42.png",
+    "notes": "UCL 2005; the iconic one-club captain",
     "image_file": "steven_gerrard.png"
   },
   {
@@ -1071,8 +989,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2004–2013",
     "best_club": "Chelsea",
-    "notes": "Best scoring midfielder in PL history",
-    "image": "image3.png",
+    "notes": "Most goals by a midfielder in Premier League history",
     "image_file": "frank_lampard.png"
   },
   {
@@ -1081,8 +998,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2011–2016",
     "best_club": "Manchester City",
-    "notes": "Dominant box-to-box; AFCON 2015",
-    "image": "image28.png",
+    "notes": "Dominant box-to-box; two PL titles; AFCON 2015",
     "image_file": "yaya_toure.png"
   },
   {
@@ -1091,8 +1007,7 @@ const PLAYERS = [
     "position": "DM",
     "peak_years": "2016–2022",
     "best_club": "Real Madrid",
-    "notes": "Three straight UCL titles as defensive anchor",
-    "image": "image22.png",
+    "notes": "Three straight UCL titles as the defensive anchor",
     "image_file": "casemiro.png"
   },
   {
@@ -1101,8 +1016,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2019–2024",
     "best_club": "Barcelona",
-    "notes": "Technical excellence; best of his generation",
-    "image": "image12.png",
+    "notes": "Technical excellence; best Dutch midfielder of his generation",
     "image_file": "frenkie_de_jong.png"
   },
   {
@@ -1111,8 +1025,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2023–2026",
     "best_club": "Real Madrid",
-    "notes": "UCL winner 2024; most complete young mid ever",
-    "image": "image34.png",
+    "notes": "UCL winner 2024; most complete young midfielder ever",
     "image_file": "jude_bellingham.png"
   },
   {
@@ -1121,8 +1034,7 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2021–2026",
     "best_club": "Barcelona",
-    "notes": "Xavi's heir; Euro 2024 winner",
-    "image": "image51.png",
+    "notes": "Xavi's heir; Euro 2024 winner; football IQ off the charts",
     "image_file": "pedri.png"
   },
   {
@@ -1132,7 +1044,6 @@ const PLAYERS = [
     "peak_years": "2022–2026",
     "best_club": "Arsenal",
     "notes": "England's best midfielder in a generation",
-    "image": "image48.png",
     "image_file": "declan_rice.png"
   },
   {
@@ -1141,9 +1052,80 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2019–2023",
     "best_club": "Manchester City",
-    "notes": "Treble winner 2023; quietly one of the best",
-    "image": "image15.png",
+    "notes": "Treble winner 2023; quietly one of the most intelligent midfielders",
     "image_file": "ilkay_gundogan.png"
+  },
+  {
+    "name": "Andrés Iniesta",
+    "nationality": "Spanish",
+    "position": "AM",
+    "peak_years": "2008–2018",
+    "best_club": "Barcelona",
+    "notes": "WC 2010 final goal; three UCL titles; the most graceful player",
+    "image_file": "andres_iniesta.png"
+  },
+  {
+    "name": "Xavi",
+    "nationality": "Spanish",
+    "position": "CM",
+    "peak_years": "2006–2015",
+    "best_club": "Barcelona",
+    "notes": "The metronome; two WC, four Euros as player or coach",
+    "image_file": "xavi.png"
+  },
+  {
+    "name": "Bastian Schweinsteiger",
+    "nationality": "German",
+    "position": "CM",
+    "peak_years": "2012–2016",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013; 2014 WC winner; warrior of midfield",
+    "image_file": "bastian_schweinsteiger.png"
+  },
+  {
+    "name": "Arturo Vidal",
+    "nationality": "Chilean",
+    "position": "CM",
+    "peak_years": "2012–2019",
+    "best_club": "Juventus / Bayern",
+    "notes": "Most titles of his generation; engine that never stops",
+    "image_file": "arturo_vidal.png"
+  },
+  {
+    "name": "David Beckham",
+    "nationality": "English",
+    "position": "RM",
+    "peak_years": "2000–2007",
+    "best_club": "Real Madrid",
+    "notes": "Cultural icon; delivery from wide unmatched",
+    "image_file": "david_beckham.png"
+  },
+  {
+    "name": "Angel Di María",
+    "nationality": "Argentine",
+    "position": "LM",
+    "peak_years": "2014–2022",
+    "best_club": "PSG",
+    "notes": "WC 2022 winner; UCL 2014 man of the match",
+    "image_file": "angel_di_maria.png"
+  },
+  {
+    "name": "Cesc Fàbregas",
+    "nationality": "Spanish",
+    "position": "CM",
+    "peak_years": "2008–2016",
+    "best_club": "Arsenal / Chelsea",
+    "notes": "Two WCs, three Euros; most creative passer of his era",
+    "image_file": "cesc_fabregas.png"
+  },
+  {
+    "name": "Marco Reus",
+    "nationality": "German",
+    "position": "AM",
+    "peak_years": "2012–2023",
+    "best_club": "Borussia Dortmund",
+    "notes": "Dortmund's heartbeat; unluckiest great never to win UCL",
+    "image_file": "marco_reus.png"
   },
   {
     "name": "Zinedine Zidane",
@@ -1151,8 +1133,7 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2000–2006",
     "best_club": "Real Madrid",
-    "notes": "Best player of his generation; 2002 UCL final goal",
-    "image": "image24.png",
+    "notes": "Best player of his generation; 2002 UCL final volley",
     "image_file": "zinedine_zidane.png"
   },
   {
@@ -1161,8 +1142,7 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2004–2006",
     "best_club": "Barcelona",
-    "notes": "2005 Ballon d'Or; most entertaining player ever",
-    "image": "image8.png",
+    "notes": "2005 Ballon d'Or; most entertaining player who ever lived",
     "image_file": "ronaldinho.png"
   },
   {
@@ -1172,8 +1152,7 @@ const PLAYERS = [
     "peak_years": "2006–2009",
     "best_club": "AC Milan",
     "notes": "2007 Ballon d'Or; magical UCL run 2007",
-    "image": null,
-    "image_file": null
+    "image_file": "kaka.png"
   },
   {
     "name": "Juan Román Riquelme",
@@ -1181,8 +1160,7 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2000–2008",
     "best_club": "Boca Juniors",
-    "notes": "Purist's footballer; Copa Libertadores legend",
-    "image": null,
+    "notes": "The purist's footballer; Copa Libertadores legend",
     "image_file": null
   },
   {
@@ -1192,7 +1170,6 @@ const PLAYERS = [
     "peak_years": "2010–2013",
     "best_club": "Inter Milan",
     "notes": "Treble 2010; WC finalist; robbed of Ballon d'Or",
-    "image": null,
     "image_file": null
   },
   {
@@ -1201,8 +1178,7 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2011–2019",
     "best_club": "Arsenal",
-    "notes": "52 assists in a single Bundesliga season",
-    "image": null,
+    "notes": "52 assists in a Bundesliga season; genius of vision",
     "image_file": null
   },
   {
@@ -1212,7 +1188,6 @@ const PLAYERS = [
     "peak_years": "2010–2020",
     "best_club": "Manchester City",
     "notes": "Genius playmaker; four PL titles; two Euros",
-    "image": null,
     "image_file": null
   },
   {
@@ -1221,9 +1196,8 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2017–2026",
     "best_club": "Manchester City",
-    "notes": "Best passer in modern football; Treble 2023",
-    "image": null,
-    "image_file": null
+    "notes": "Best passer in modern football; Treble winner 2023",
+    "image_file": "kevin_de_bruyne.png"
   },
   {
     "name": "Bruno Fernandes",
@@ -1232,17 +1206,6 @@ const PLAYERS = [
     "peak_years": "2020–2024",
     "best_club": "Manchester United",
     "notes": "Rescued United; consistent match-winner",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Isco",
-    "nationality": "Spanish",
-    "position": "AM",
-    "peak_years": "2015–2018",
-    "best_club": "Real Madrid",
-    "notes": "Three UCL medals; most gifted Spaniard never to win Euros",
-    "image": null,
     "image_file": null
   },
   {
@@ -1252,7 +1215,6 @@ const PLAYERS = [
     "peak_years": "2014–2018",
     "best_club": "Real Madrid",
     "notes": "2014 WC Golden Boot; one of the gifted",
-    "image": null,
     "image_file": null
   },
   {
@@ -1261,9 +1223,17 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2004–2008",
     "best_club": "Barcelona",
-    "notes": "UCL 2006; Porto treble 2003",
-    "image": null,
+    "notes": "UCL 2006 winner; Porto treble 2003",
     "image_file": null
+  },
+  {
+    "name": "Luis Figo",
+    "nationality": "Portuguese",
+    "position": "RW",
+    "peak_years": "2000–2006",
+    "best_club": "Real Madrid",
+    "notes": "Ballon d'Or 2000; best dribbler of his generation",
+    "image_file": "luis_figo.png"
   },
   {
     "name": "Cristiano Ronaldo",
@@ -1271,9 +1241,8 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2008–2018",
     "best_club": "Real Madrid",
-    "notes": "5 Ballon d'Ors; 4 UCL; all-time top scorer",
-    "image": null,
-    "image_file": null
+    "notes": "5 Ballon d'Ors; 4 UCL titles; all-time international top scorer",
+    "image_file": "cristiano_ronaldo.png"
   },
   {
     "name": "Arjen Robben",
@@ -1281,9 +1250,8 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2012–2019",
     "best_club": "Bayern Munich",
-    "notes": "UCL 2013; cut inside left foot icon",
-    "image": null,
-    "image_file": null
+    "notes": "UCL 2013 winner; the unstoppable cut inside left foot",
+    "image_file": "arjen_robben.png"
   },
   {
     "name": "Franck Ribéry",
@@ -1291,9 +1259,8 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2012–2015",
     "best_club": "Bayern Munich",
-    "notes": "UCL 2013; best Balon d'Or snub ever",
-    "image": null,
-    "image_file": null
+    "notes": "UCL 2013; best Ballon d'Or snub of the decade",
+    "image_file": "ribery.png"
   },
   {
     "name": "Gareth Bale",
@@ -1301,8 +1268,7 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2012–2018",
     "best_club": "Real Madrid",
-    "notes": "UCL final hat-trick; bicycle kick legend",
-    "image": null,
+    "notes": "UCL final bicycle kick; four UCL medals",
     "image_file": null
   },
   {
@@ -1311,19 +1277,8 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2019–2022",
     "best_club": "Manchester City",
-    "notes": "Transformed himself into world class",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Leroy Sané",
-    "nationality": "German",
-    "position": "RW",
-    "peak_years": "2020–2023",
-    "best_club": "Bayern Munich",
-    "notes": "Electric pace; world-class in full flight",
-    "image": null,
-    "image_file": null
+    "notes": "Transformed himself into a world-class talent",
+    "image_file": "raheem_sterling.png"
   },
   {
     "name": "Bukayo Saka",
@@ -1331,48 +1286,7 @@ const PLAYERS = [
     "position": "RW",
     "peak_years": "2022–2026",
     "best_club": "Arsenal",
-    "notes": "Best young English player of his generation",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Lionel Messi",
-    "nationality": "Argentine",
-    "position": "LW",
-    "peak_years": "2009–2023",
-    "best_club": "Barcelona",
-    "notes": "8 Ballon d'Ors; WC 2022; greatest ever",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Thierry Henry",
-    "nationality": "French",
-    "position": "LW",
-    "peak_years": "2002–2008",
-    "best_club": "Arsenal",
-    "notes": "Premier League legend; 226 goals for Arsenal",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Eden Hazard",
-    "nationality": "Belgian",
-    "position": "LW",
-    "peak_years": "2014–2019",
-    "best_club": "Chelsea",
-    "notes": "Best player in the world on his day",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Sadio Mané",
-    "nationality": "Senegalese",
-    "position": "LW",
-    "peak_years": "2018–2022",
-    "best_club": "Liverpool",
-    "notes": "UCL & PL winner; AFCON 2022; African greats",
-    "image": null,
+    "notes": "Best young English player of his generation; Arsenal talisman",
     "image_file": null
   },
   {
@@ -1381,8 +1295,61 @@ const PLAYERS = [
     "position": "LW",
     "peak_years": "2017–2026",
     "best_club": "Liverpool",
-    "notes": "Four-time PL Golden Boot; UCL 2019",
-    "image": null,
+    "notes": "Four PL Golden Boots; UCL winner 2019",
+    "image_file": null
+  },
+  {
+    "name": "Leroy Sané",
+    "nationality": "German",
+    "position": "RW",
+    "peak_years": "2020–2023",
+    "best_club": "Bayern Munich",
+    "notes": "Electric pace; world-class when fully unleashed",
+    "image_file": "serge_gnabry.png"
+  },
+  {
+    "name": "Lamine Yamal",
+    "nationality": "Spanish",
+    "position": "RW",
+    "peak_years": "2024–2026",
+    "best_club": "Barcelona",
+    "notes": "Euro 2024 breakthrough; youngest ever to define a tournament",
+    "image_file": "lamine_yamal.png"
+  },
+  {
+    "name": "Lionel Messi",
+    "nationality": "Argentine",
+    "position": "LW",
+    "peak_years": "2009–2023",
+    "best_club": "Barcelona",
+    "notes": "8 Ballon d'Ors; 2022 World Cup; the greatest of all time",
+    "image_file": null
+  },
+  {
+    "name": "Thierry Henry",
+    "nationality": "French",
+    "position": "LW",
+    "peak_years": "2002–2008",
+    "best_club": "Arsenal",
+    "notes": "Arsenal legend; 226 goals; Invincibles talisman",
+    "image_file": "thierry_henry.png"
+  },
+  {
+    "name": "Eden Hazard",
+    "nationality": "Belgian",
+    "position": "LW",
+    "peak_years": "2014–2019",
+    "best_club": "Chelsea",
+    "notes": "Best player in the world on his day; Premier League icon",
+    "image_file": "eden_hazard.png"
+  },
+  {
+    "name": "Sadio Mané",
+    "nationality": "Senegalese",
+    "position": "LW",
+    "peak_years": "2018–2022",
+    "best_club": "Liverpool",
+    "notes": "UCL & PL winner; AFCON 2022; Africa's finest",
     "image_file": null
   },
   {
@@ -1390,10 +1357,9 @@ const PLAYERS = [
     "nationality": "Brazilian",
     "position": "LW",
     "peak_years": "2014–2020",
-    "best_club": "Barcelona / PSG",
-    "notes": "Most expensive player ever; electrifying talent",
-    "image": null,
-    "image_file": null
+    "best_club": "Barcelona",
+    "notes": "Most expensive transfer ever; electrifying skill",
+    "image_file": "neymar.png"
   },
   {
     "name": "Nico Williams",
@@ -1401,8 +1367,7 @@ const PLAYERS = [
     "position": "LW",
     "peak_years": "2024–2026",
     "best_club": "Athletic Bilbao",
-    "notes": "Euro 2024 standout; blistering new talent",
-    "image": null,
+    "notes": "Euro 2024 standout; blistering talent",
     "image_file": null
   },
   {
@@ -1411,8 +1376,7 @@ const PLAYERS = [
     "position": "LW",
     "peak_years": "2022–2026",
     "best_club": "Real Madrid",
-    "notes": "UCL 2022 & 2024 winner; best in world 2024",
-    "image": null,
+    "notes": "UCL 2022 & 2024 winner; best player in the world 2024",
     "image_file": null
   },
   {
@@ -1421,18 +1385,7 @@ const PLAYERS = [
     "position": "LW",
     "peak_years": "2021–2026",
     "best_club": "Barcelona / PSG",
-    "notes": "Finally delivering on enormous potential",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Rafael Leão",
-    "nationality": "Portuguese",
-    "position": "LW",
-    "peak_years": "2022–2026",
-    "best_club": "AC Milan",
-    "notes": "One of the most exciting forwards in Serie A",
-    "image": null,
+    "notes": "Euro 2024 finalist; finally delivering on enormous potential",
     "image_file": null
   },
   {
@@ -1441,9 +1394,17 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2018–2026",
     "best_club": "PSG / Real Madrid",
-    "notes": "WC 2018 winner; heir to Messi/Ronaldo throne",
-    "image": null,
-    "image_file": null
+    "notes": "WC 2018 winner; heir to the Messi/Ronaldo throne",
+    "image_file": "mbappe.png"
+  },
+  {
+    "name": "Rivaldo",
+    "nationality": "Brazilian",
+    "position": "LW",
+    "peak_years": "2000–2004",
+    "best_club": "Barcelona",
+    "notes": "2002 WC winner; Ballon d'Or 1999; samba class",
+    "image_file": "rivaldo.png"
   },
   {
     "name": "Ronaldo Nazário",
@@ -1451,8 +1412,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2000–2006",
     "best_club": "Real Madrid",
-    "notes": "R9; 2002 WC Golden Boot; greatest pure striker",
-    "image": null,
+    "notes": "R9; 2002 WC Golden Boot; greatest pure striker who ever lived",
     "image_file": null
   },
   {
@@ -1461,9 +1421,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2009–2020",
     "best_club": "Barcelona / PSG",
-    "notes": "Serie A, Ligue 1, PL — scored everywhere",
-    "image": null,
-    "image_file": null
+    "notes": "Scored in every major league; never won UCL",
+    "image_file": "zlatan_ibrahimovic.png"
   },
   {
     "name": "Fernando Torres",
@@ -1471,8 +1430,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2007–2012",
     "best_club": "Liverpool",
-    "notes": "Euro 2008 & WC 2010 winner; peak was unstoppable",
-    "image": null,
+    "notes": "Euro 2008 & WC 2010 winner; peak was utterly unstoppable",
     "image_file": null
   },
   {
@@ -1482,7 +1440,6 @@ const PLAYERS = [
     "peak_years": "2004–2012",
     "best_club": "Chelsea",
     "notes": "UCL 2012; greatest big-game striker ever",
-    "image": null,
     "image_file": null
   },
   {
@@ -1491,9 +1448,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2006–2016",
     "best_club": "Manchester United",
-    "notes": "England's greatest ever; 253 goals for United",
-    "image": null,
-    "image_file": null
+    "notes": "England all-time top scorer; 253 goals for United",
+    "image_file": "wayne_rooney.png"
   },
   {
     "name": "Samuel Eto'o",
@@ -1502,7 +1458,6 @@ const PLAYERS = [
     "peak_years": "2004–2010",
     "best_club": "Barcelona",
     "notes": "Two UCL titles; AFCON x2; electric attacker",
-    "image": null,
     "image_file": null
   },
   {
@@ -1511,8 +1466,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2008–2012",
     "best_club": "Barcelona",
-    "notes": "Spain's all-time top scorer; WC 2010 & Euros",
-    "image": null,
+    "notes": "Spain all-time top scorer; WC 2010 and Euros winner",
     "image_file": null
   },
   {
@@ -1522,7 +1476,6 @@ const PLAYERS = [
     "peak_years": "2011–2015",
     "best_club": "Atlético Madrid",
     "notes": "Greatest Colombian striker; Europa League king",
-    "image": null,
     "image_file": null
   },
   {
@@ -1531,9 +1484,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2013–2016",
     "best_club": "Barcelona",
-    "notes": "2013–14 PL: 31 goals; Ballon d'Or 3rd 2014",
-    "image": null,
-    "image_file": null
+    "notes": "31 PL goals in one season; Ballon d'Or 3rd 2014",
+    "image_file": "suarez.png"
   },
   {
     "name": "Robert Lewandowski",
@@ -1541,9 +1493,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2019–2023",
     "best_club": "Bayern Munich",
-    "notes": "41 Bundesliga goals in one season; 2x FIFA Best",
-    "image": null,
-    "image_file": null
+    "notes": "41 Bundesliga goals in a season; 2× FIFA Best Player",
+    "image_file": "robert_lewandowski.png"
   },
   {
     "name": "Karim Benzema",
@@ -1552,8 +1503,7 @@ const PLAYERS = [
     "peak_years": "2021–2023",
     "best_club": "Real Madrid",
     "notes": "2022 Ballon d'Or; UCL 2022 hat-trick vs City",
-    "image": null,
-    "image_file": null
+    "image_file": "karim_benzema.png"
   },
   {
     "name": "Harry Kane",
@@ -1561,8 +1511,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2021–2026",
     "best_club": "Bayern Munich",
-    "notes": "England's all-time top scorer; scoring machine",
-    "image": null,
+    "notes": "England all-time top scorer; ruthless finisher",
     "image_file": null
   },
   {
@@ -1571,9 +1520,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2022–2026",
     "best_club": "Manchester City",
-    "notes": "52 goals in debut PL season; alien striker",
-    "image": null,
-    "image_file": null
+    "notes": "52 goals in debut PL season; goalscoring machine",
+    "image_file": "erling_haaland.png"
   },
   {
     "name": "Romelu Lukaku",
@@ -1581,8 +1529,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2018–2022",
     "best_club": "Inter Milan",
-    "notes": "Serie A title 2021; clinical at his best",
-    "image": null,
+    "notes": "Serie A title 2021; clinical at his very best",
     "image_file": null
   },
   {
@@ -1591,8 +1538,7 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2016–2022",
     "best_club": "Atlético Madrid",
-    "notes": "WC 2018 winner; Euro 2016 finalist; model pro",
-    "image": "image33.png",
+    "notes": "WC 2018 winner; Euro 2016 finalist; the model pro",
     "image_file": "antoine_griezmann.png"
   },
   {
@@ -1602,8 +1548,7 @@ const PLAYERS = [
     "peak_years": "2022–2026",
     "best_club": "Inter Milan",
     "notes": "WC 2022 winner; Serie A 2024; deadly finisher",
-    "image": "image27.png",
-    "image_file": "lautaro_martínez.png"
+    "image_file": "lautaro_martinez.png"
   },
   {
     "name": "Julián Álvarez",
@@ -1611,9 +1556,8 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2022–2026",
     "best_club": "Manchester City",
-    "notes": "WC 2022; UCL 2023; tireless pressing forward",
-    "image": "image32.png",
-    "image_file": "julián_álvarez.png"
+    "notes": "WC 2022; UCL 2023; tireless and clinical",
+    "image_file": "julian_alvarez.png"
   },
   {
     "name": "Filippo Inzaghi",
@@ -1621,8 +1565,7 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2000–2008",
     "best_club": "AC Milan",
-    "notes": "UCL 2003 & 2007; poacher extraordinaire",
-    "image": "image23.png",
+    "notes": "UCL 2003 & 2007; the ultimate poacher",
     "image_file": "filippo_inzaghi.png"
   },
   {
@@ -1632,7 +1575,6 @@ const PLAYERS = [
     "peak_years": "2000–2006",
     "best_club": "AC Milan",
     "notes": "2004 Ballon d'Or; devastating in his prime",
-    "image": "image39.png",
     "image_file": "andriy_shevchenko.png"
   },
   {
@@ -1642,28 +1584,16 @@ const PLAYERS = [
     "peak_years": "2001–2007",
     "best_club": "Manchester United",
     "notes": "150 goals in 219 games; elite finisher",
-    "image": null,
     "image_file": null
   },
   {
-    "name": "Hernan Crespo",
+    "name": "Sergio Agüero",
     "nationality": "Argentine",
     "position": "ST",
-    "peak_years": "2000–2006",
-    "best_club": "AC Milan / Chelsea",
-    "notes": "UCL finalist 2005; brilliant early-era striker",
-    "image": null,
-    "image_file": null
-  },
-  {
-    "name": "Robinho",
-    "nationality": "Brazilian",
-    "position": "FW",
-    "peak_years": "2004–2010",
-    "best_club": "Real Madrid",
-    "notes": "Brilliant in flashes; tricky and unpredictable",
-    "image": null,
-    "image_file": null
+    "peak_years": "2011–2021",
+    "best_club": "Manchester City",
+    "notes": "93:20; five PL titles; City's all-time scorer",
+    "image_file": "sergio_aguero.png"
   },
   {
     "name": "Darwin Núñez",
@@ -1671,88 +1601,134 @@ const PLAYERS = [
     "position": "ST",
     "peak_years": "2022–2026",
     "best_club": "Liverpool",
-    "notes": "Raw power; one of the most exciting new forwards",
-    "image": "image20.png",
-    "image_file": "darwin_nuñez.png"
+    "notes": "Raw explosive power; one of the most exciting new forwards",
+    "image_file": "darwin_nunez.png"
+  },
+  {
+    "name": "Alexandre Lacazette",
+    "nationality": "French",
+    "position": "ST",
+    "peak_years": "2017–2022",
+    "best_club": "Arsenal",
+    "notes": "Underrated; consistently excellent in the PL",
+    "image_file": "alexandre_lacazette.png"
+  },
+  {
+    "name": "Pele",
+    "nationality": "Brazilian",
+    "position": "ST",
+    "peak_years": "2000–2002",
+    "best_club": "Santos",
+    "notes": "Include for legendary status; greatest of all time pre-era",
+    "image_file": "pele.png"
+  },
+  {
+    "name": "Diego Maradona",
+    "nationality": "Argentine",
+    "position": "AM",
+    "peak_years": "2000–2002",
+    "best_club": "Various",
+    "notes": "God-given talent; greatest to ever do it",
+    "image_file": "diego_maradona.png"
+  },
+  {
+    "name": "Johan Cruyff",
+    "nationality": "Dutch",
+    "position": "AM",
+    "peak_years": "2000–2002",
+    "best_club": "Barcelona",
+    "notes": "Total football originator; shaped the game forever",
+    "image_file": "johan_cruyff.png"
+  },
+  {
+    "name": "Ruud Gullit",
+    "nationality": "Dutch",
+    "position": "AM",
+    "peak_years": "2000–2002",
+    "best_club": "Various",
+    "notes": "Ballon d'Or icon; dreadlocked genius",
+    "image_file": "ruud_gullit.png"
+  },
+  {
+    "name": "Thomas Müller",
+    "nationality": "German",
+    "position": "AM",
+    "peak_years": "2010–2022",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013 & 2020; WC 2014; raumdeuter genius",
+    "image_file": "muller.png"
   }
 ];
 
-// ── Position grouping
+const POS_COLORS = { GK:'var(--pos-gk)', DEF:'var(--pos-def)', MID:'var(--pos-mid)', FWD:'var(--pos-fwd)' };
+const POS_LABELS = {
+  GK:'Goalkeeper', RB:'Right Back', LB:'Left Back', CB:'Centre Back',
+  DM:'Defensive Mid', CM:'Central Mid', AM:'Attacking Mid',
+  RM:'Right Mid', LM:'Left Mid', RW:'Right Wing', LW:'Left Wing',
+  ST:'Striker', FW:'Forward', SS:'Second Striker'
+};
+
 function posGroup(pos) {
   if (!pos) return 'MID';
   const p = pos.toUpperCase();
   if (p === 'GK') return 'GK';
-  if (['RB','LB','CB','CB1','CB2','DEF'].includes(p)) return 'DEF';
+  if (['RB','LB','CB','CB1','CB2'].includes(p)) return 'DEF';
   if (['DM','CM','AM','RM','LM'].includes(p)) return 'MID';
-  if (['RW','LW','ST','FW','FWD','SS'].includes(p)) return 'FWD';
+  if (['RW','LW','ST','FW','SS'].includes(p)) return 'FWD';
   return 'MID';
 }
 
-function posLabel(pos) {
-  const map = {
-    'GK':'Goalkeeper','RB':'Right Back','LB':'Left Back','CB':'Centre Back',
-    'DM':'Defensive Mid','CM':'Central Mid','AM':'Attacking Mid',
-    'RM':'Right Mid','LM':'Left Mid','RW':'Right Wing','LW':'Left Wing',
-    'ST':'Striker','FW':'Forward','SS':'Second Striker'
-  };
-  return map[pos] || pos;
-}
-
 function initials(name) {
-  return name.split(' ').map(w => w[0]).filter(Boolean).slice(0,2).join('');
+  return (name || '').split(' ').map(w=>w[0]).filter(Boolean).slice(0,2).join('');
 }
 
-// ── Build grid
+// Build grid
 const grid = document.getElementById('player-grid');
-const empty = document.getElementById('empty-state');
-const countBadge = document.getElementById('count-badge');
 
 PLAYERS.forEach((p, i) => {
-  const group = posGroup(p.position);
+  const g = posGroup(p.position);
   const card = document.createElement('div');
   card.className = 'player-card';
-  card.dataset.name = (p.name || '').toLowerCase();
-  card.dataset.nat = (p.nationality || '').toLowerCase();
-  card.dataset.pos = group;
-  card.dataset.index = i;
+  card.dataset.name = (p.name||'').toLowerCase();
+  card.dataset.nat  = (p.nationality||'').toLowerCase();
+  card.dataset.pos  = g;
+  card.dataset.i    = i;
 
   const imgHtml = p.image_file
-    ? `<img src="images/${p.image_file}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-placeholder\\'><div class=\\'placeholder-initials\\'>${initials(p.name)}</div><div class=\\'placeholder-label\\'>Card Coming Soon</div></div>'">`
+    ? `<img src="images/${p.image_file}" alt="${p.name}" loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=\\'card-placeholder\\'><div class=\\'placeholder-initials\\'>${initials(p.name)}</div><div class=\\'placeholder-pos\\'>${p.position||''}</div></div>'">`
     : `<div class="card-placeholder">
          <div class="placeholder-initials">${initials(p.name)}</div>
-         <div class="placeholder-label">Card Coming Soon</div>
+         <div class="placeholder-pos">${p.position||''}</div>
        </div>`;
 
   card.innerHTML = `
-    <div class="card-stripe stripe-${group}"></div>
+    <div class="card-stripe stripe-${g}"></div>
     <div class="card-img-wrap">${imgHtml}</div>
     <div class="card-body">
-      <span class="card-pos-badge badge-${group}">${p.position || ''}</span>
+      <span class="card-pos-badge badge-${g}">${p.position||''}</span>
       <div class="card-name">${p.name}</div>
-      <div class="card-nat">${p.nationality || ''}</div>
-      <div class="card-peak">${p.peak_years || ''}</div>
+      <div class="card-nat">${p.nationality||''}</div>
+      <div class="card-peak">${p.peak_years||''}</div>
     </div>`;
 
   card.addEventListener('click', () => openModal(i));
   grid.appendChild(card);
 });
 
-// ── Filter + Search
-let activePos = 'ALL';
-let searchTerm = '';
+// Filter / search
+let activePos = 'ALL', searchTerm = '';
 
 function applyFilters() {
-  const cards = document.querySelectorAll('.player-card');
-  let visible = 0;
-  cards.forEach(card => {
-    const nameMatch = !searchTerm || card.dataset.name.includes(searchTerm) || card.dataset.nat.includes(searchTerm);
-    const posMatch  = activePos === 'ALL' || card.dataset.pos === activePos;
-    const show = nameMatch && posMatch;
-    card.classList.toggle('hidden', !show);
-    if (show) visible++;
+  let n = 0;
+  document.querySelectorAll('.player-card').forEach(c => {
+    const ok = (activePos === 'ALL' || c.dataset.pos === activePos)
+            && (!searchTerm || c.dataset.name.includes(searchTerm) || c.dataset.nat.includes(searchTerm));
+    c.classList.toggle('hidden', !ok);
+    if (ok) n++;
   });
-  empty.classList.toggle('show', visible === 0);
-  countBadge.textContent = `${visible} player${visible !== 1 ? 's' : ''}`;
+  document.getElementById('empty-state').classList.toggle('show', n === 0);
+  document.getElementById('count-label').textContent = `${n} player${n!==1?'s':''}`;
 }
 
 document.getElementById('search').addEventListener('input', e => {
@@ -1769,54 +1745,51 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ── Modal
-const overlay = document.getElementById('modal-overlay');
-const posColors = { GK:'var(--pos-gk)', DEF:'var(--pos-def)', MID:'var(--pos-mid)', FWD:'var(--pos-fwd)' };
-
+// Modal
 function openModal(i) {
   const p = PLAYERS[i];
-  const group = posGroup(p.position);
+  const g = posGroup(p.position);
 
-  // Image col
   const imgCol = document.getElementById('modal-img-col');
   if (p.image_file) {
     imgCol.innerHTML = `
-      <div class="modal-gold-stripe"></div>
-      <img src="images/${p.image_file}" alt="${p.name}" style="flex:1;width:100%;object-fit:cover;display:block;">`;
-    imgCol.style.background = 'var(--ink)';
+      <div class="modal-gold-bar"></div>
+      <img src="images/${p.image_file}" alt="${p.name}"
+           onerror="this.parentElement.innerHTML='${modalPlaceholderHtml(p)}'">`;
   } else {
-    imgCol.innerHTML = `
-      <div class="modal-gold-stripe"></div>
-      <div class="modal-no-img">
-        <div class="big-initial">${initials(p.name)}</div>
-        <div class="coming-soon">Card coming soon</div>
-      </div>`;
+    imgCol.innerHTML = `<div class="modal-gold-bar"></div>${modalPlaceholderHtml(p)}`;
   }
 
-  // Content
   const badge = document.getElementById('modal-badge');
-  badge.textContent = posLabel(p.position);
-  badge.style.background = posColors[group] || posColors.MID;
+  badge.textContent = POS_LABELS[p.position] || p.position || '';
+  badge.style.background = POS_COLORS[g] || POS_COLORS.MID;
 
-  document.getElementById('modal-name').textContent = p.name;
-  document.getElementById('modal-nat').textContent = p.nationality;
-  document.getElementById('modal-nat2').textContent = p.nationality;
-  document.getElementById('modal-peak').textContent = p.peak_years || '—';
-  document.getElementById('modal-club').textContent = p.best_club || '—';
-  document.getElementById('modal-pos').textContent = posLabel(p.position);
+  document.getElementById('modal-name').textContent  = p.name;
+  document.getElementById('modal-nat').textContent   = p.nationality;
+  document.getElementById('modal-nat2').textContent  = p.nationality;
+  document.getElementById('modal-peak').textContent  = p.peak_years || '—';
+  document.getElementById('modal-club').textContent  = p.best_club  || '—';
+  document.getElementById('modal-pos').textContent   = POS_LABELS[p.position] || p.position || '—';
   document.getElementById('modal-notes').textContent = p.notes || '—';
 
-  overlay.classList.add('open');
+  document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
+function modalPlaceholderHtml(p) {
+  return `<div class="modal-img-placeholder">
+    <div class="big-init">${initials(p.name)}</div>
+    <div class="add-card">Card coming soon</div>
+  </div>`;
+}
+
 function closeModal() {
-  overlay.classList.remove('open');
+  document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 
 document.getElementById('modal-close').addEventListener('click', closeModal);
-overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target.id === 'modal-overlay') closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
