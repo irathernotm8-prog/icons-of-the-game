@@ -1,38 +1,31 @@
-# Icons of the Game · 2000–2026
+# Icons of the Game
 
-A visual gallery of the 120 greatest footballers of the modern era.
+A visual gallery of the greatest footballers of all time.
 
 ## Adding card images
 
-All images go in `/images`. Name the file using lowercase and underscores — no accents, no spaces:
+Drop a PNG into `/images`. Filename rules — **lowercase, underscores, no accents, no spaces**:
 
 | Player | Filename |
 |--------|----------|
-| Cristiano Ronaldo | `cristiano_ronaldo.png` |
-| Kylian Mbappé | `kylian_mbappe.png` |
 | Lionel Messi | `lionel_messi.png` |
+| Paolo Maldini | `paolo_maldini.png` |
 | N'Golo Kanté | `ngolo_kante.png` |
+| Zlatan Ibrahimović | `zlatan_ibrahimovic.png` |
 
-**Rules:**
-- Lowercase only
-- Spaces → underscores
-- Strip accents (é→e, ö→o, ü→u, etc.)
-- Strip apostrophes and dots
-- PNG format
+Then find the player in the `PLAYERS` array in `index.html` and change `"image_file": null` to `"image_file": "filename.png"`.
 
-Once you drop the file in, find the player in the `PLAYERS` array inside `index.html` and update their `"image_file"` field from `null` to `"filename.png"`.
+## Adding players
 
-## Adding new players
-
-Find the `PLAYERS` array in `index.html` and add:
+Add to the `PLAYERS` array in `index.html`:
 
 ```json
 {
   "name": "Player Name",
   "nationality": "Nationality",
   "position": "ST",
-  "peak_years": "2018–2024",
-  "best_club": "Club Name",
+  "peak_years": "2010–2018",
+  "best_club": "Club",
   "notes": "Career highlights",
   "image_file": null
 }
@@ -40,17 +33,6 @@ Find the `PLAYERS` array in `index.html` and add:
 
 **Position codes:** `GK` · `RB` · `LB` · `CB` · `DM` · `CM` · `AM` · `RW` · `LW` · `ST`
 
-## Deploy to GitHub Pages
+## GitHub Pages
 
-1. Push repo to GitHub
-2. Settings → Pages → Source: `main` branch, `/ (root)`
-3. Live at `https://yourusername.github.io/repo-name`
-
-## File structure
-
-```
-/
-├── index.html        ← entire site (HTML + CSS + JS + data)
-├── images/           ← card PNGs (transparent background works best)
-└── README.md
-```
+Settings → Pages → Source: `main` branch, `/ (root)` folder → Save.
