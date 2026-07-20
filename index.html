@@ -7,26 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold:      #C9A84C;
-  --gold-dim:  #8B6E2A;
-  --gold-pale: #F5EDD6;
-  --white:     #FFFFFF;
-  --off-white: #F4F0E8;
-  --ink:       #0A0A0A;
-  --ink-soft:  #2C2C2C;
-  --mist:      #E2DAC8;
-  --pos-gk:    #1A4A6B;
-  --pos-def:   #1B5E20;
-  --pos-mid:   #5C3D00;
-  --pos-fwd:   #7B0D0D;
+:root{
+  --gold:#C9A84C;--gold-dim:#8B6E2A;--gold-pale:#F5EDD6;
+  --white:#FFFFFF;--off-white:#F4F0E8;--ink:#0A0A0A;--ink-soft:#2C2C2C;--mist:#E2DAC8;
+  --pos-gk:#1A4A6B;--pos-def:#1B5E20;--pos-mid:#5C3D00;--pos-fwd:#7B0D0D;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--off-white);color:var(--ink);font-family:'Inter',sans-serif;min-height:100vh}
 
-/* HEADER */
+/* ── HEADER ── */
 header{background:var(--ink);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
-.header-inner{max-width:1440px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;gap:20px}
+.header-inner{max-width:1440px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;gap:20px}
 .site-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold);white-space:nowrap;flex-shrink:0}
 .controls{display:flex;align-items:center;gap:10px;flex:1}
 .search-wrap{position:relative;flex:1;max-width:360px}
@@ -38,75 +29,68 @@ header{background:var(--ink);border-bottom:2px solid var(--gold);position:sticky
 .filter-btn{background:transparent;border:1px solid rgba(201,168,76,.2);color:rgba(255,255,255,.4);padding:6px 13px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;cursor:pointer;transition:all .15s}
 .filter-btn:hover{border-color:rgba(201,168,76,.5);color:rgba(255,255,255,.7)}
 .filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.sort-group{display:flex;gap:4px;margin-left:4px;border-left:1px solid rgba(201,168,76,.15);padding-left:12px}
+.sort-btn{background:transparent;border:1px solid rgba(201,168,76,.15);color:rgba(255,255,255,.3);padding:6px 10px;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .15s}
+.sort-btn:hover{border-color:rgba(201,168,76,.4);color:rgba(255,255,255,.6)}
+.sort-btn.active{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.4);color:var(--gold)}
 .count-label{font-size:11px;color:rgba(201,168,76,.4);margin-left:auto;white-space:nowrap;font-weight:500;letter-spacing:1px}
 
-/* HERO */
+/* ── HERO ── */
 .hero{background:var(--ink);padding:80px 32px 72px;text-align:center;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,var(--off-white))}
 .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 50% 100%,rgba(201,168,76,.1) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:6px;color:var(--gold-dim);margin-bottom:20px}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:900;color:var(--white);line-height:.95;margin-bottom:4px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:900;color:var(--white);line-height:.95}
 .hero-title .gold{color:var(--gold);font-style:italic}
 .hero-sub{font-size:13px;color:rgba(255,255,255,.3);letter-spacing:2px;margin-top:20px;font-weight:300;text-transform:uppercase}
 .hero-divider{width:48px;height:2px;background:var(--gold);margin:24px auto 0;opacity:.7}
 
-/* GRID */
+/* ── GRID ── */
 .grid-wrap{max-width:1440px;margin:0 auto;padding:48px 32px 100px}
 .player-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:20px}
 
-/* PLAYER CARD */
+/* ── PLAYER CARD ── */
 .player-card{background:var(--white);border:1px solid var(--mist);cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden;display:flex;flex-direction:column}
 .player-card:hover{transform:translateY(-5px);box-shadow:0 24px 56px rgba(0,0,0,.1),0 0 0 1px var(--gold);border-color:var(--gold)}
 .card-stripe{height:3px;flex-shrink:0}
-.stripe-GK {background:var(--pos-gk)}
-.stripe-DEF{background:var(--pos-def)}
-.stripe-MID{background:var(--pos-mid)}
-.stripe-FWD{background:var(--pos-fwd)}
+.stripe-GK{background:var(--pos-gk)}.stripe-DEF{background:var(--pos-def)}.stripe-MID{background:var(--pos-mid)}.stripe-FWD{background:var(--pos-fwd)}
 
-/* Image: white bg so transparent PNGs show clean, contain so card shape preserved */
-.card-img-wrap{width:100%;aspect-ratio:3/4;background:var(--white);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;position:relative}
+/* White background — transparent PNGs show cleanly */
+.card-img-wrap{width:100%;aspect-ratio:3/4;background:var(--white);overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
 .card-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:bottom center;display:block}
 
-/* Placeholder for no-image players — gold tone, initials only */
+/* Placeholder: gold tone, initials only — no text */
 .card-placeholder{width:100%;height:100%;background:linear-gradient(160deg,var(--gold-pale) 0%,#ede5d0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .ph-initials{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:rgba(139,110,42,.22);line-height:1;letter-spacing:-2px}
 .ph-pos{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;color:rgba(139,110,42,.35)}
 
 .card-body{padding:12px 14px 15px;border-top:1px solid var(--mist);flex:1;display:flex;flex-direction:column;gap:4px}
 .card-pos-badge{display:inline-flex;align-items:center;font-family:'Bebas Neue',sans-serif;font-size:9px;letter-spacing:2px;padding:2px 7px;color:var(--white);align-self:flex-start;margin-bottom:2px}
-.badge-GK {background:var(--pos-gk)}
-.badge-DEF{background:var(--pos-def)}
-.badge-MID{background:var(--pos-mid)}
-.badge-FWD{background:var(--pos-fwd)}
+.badge-GK{background:var(--pos-gk)}.badge-DEF{background:var(--pos-def)}.badge-MID{background:var(--pos-mid)}.badge-FWD{background:var(--pos-fwd)}
 .card-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2}
 .card-nat{font-size:11px;color:#999;font-weight:500}
 .card-peak{font-size:11px;color:var(--gold-dim);font-weight:600;margin-top:2px}
-
 .player-card.hidden{display:none}
 
-/* EMPTY STATE */
+/* ── EMPTY STATE ── */
 .empty-state{display:none;flex-direction:column;align-items:center;justify-content:center;padding:100px 32px;text-align:center;gap:12px;color:#bbb}
 .empty-state.show{display:flex}
 .empty-state svg{opacity:.25;width:48px;height:48px}
-.empty-state p{font-size:15px}
 
-/* MODAL */
+/* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(5,5,5,.82);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(6px)}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal{background:var(--white);max-width:800px;width:100%;max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:300px 1fr;position:relative;transform:scale(.97) translateY(12px);transition:transform .2s;box-shadow:0 40px 100px rgba(0,0,0,.4)}
 .modal-overlay.open .modal{transform:scale(1) translateY(0)}
 
-/* Modal image col — white bg, transparent cards look great */
-.modal-img-col{background:var(--white);border-right:1px solid var(--mist);display:flex;flex-direction:column;min-height:420px;position:relative}
-.modal-img-col img{width:100%;flex:1;object-fit:contain;object-position:bottom center;display:block;padding:16px 16px 0}
+.modal-img-col{background:var(--white);border-right:1px solid var(--mist);display:flex;flex-direction:column;min-height:420px}
 .modal-gold-bar{height:4px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));flex-shrink:0}
+.modal-img-col img{width:100%;flex:1;object-fit:contain;object-position:bottom center;display:block;padding:16px 16px 0}
 
-/* Modal placeholder — no "card coming soon" text, just initials */
+/* Modal placeholder — initials only, no "card coming soon" text */
 .modal-ph{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--gold-pale),#e8dfc8);gap:10px;padding:40px;min-height:380px}
 .modal-ph-init{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;color:rgba(139,110,42,.18);line-height:1}
-.modal-ph-label{font-size:9px;letter-spacing:3px;color:rgba(139,110,42,.35);text-transform:uppercase}
 
-/* Modal content */
 .modal-content{padding:40px 36px 36px;display:flex;flex-direction:column}
 .modal-pos-badge{display:inline-flex;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;padding:3px 10px;color:var(--white);align-self:flex-start;margin-bottom:14px}
 .modal-name{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);font-weight:900;line-height:1.05;color:var(--ink);margin-bottom:4px}
@@ -122,13 +106,13 @@ header{background:var(--ink);border-bottom:2px solid var(--gold);position:sticky
 .modal-close:hover{background:rgba(0,0,0,.1);color:var(--ink)}
 
 @media(max-width:700px){
-  .header-inner{padding:0 16px}
+  .header-inner{padding:0 16px;flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px;gap:10px}
   .hero{padding:52px 20px 44px}
   .grid-wrap{padding:28px 16px 60px}
   .player-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
   .modal{grid-template-columns:1fr}
   .modal-img-col{min-height:260px;border-right:none;border-bottom:1px solid var(--mist)}
-  .controls{flex-wrap:wrap}
+  .sort-group{border-left:none;padding-left:0}
 }
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--off-white)}
@@ -151,6 +135,10 @@ header{background:var(--ink);border-bottom:2px solid var(--gold);position:sticky
         <button class="filter-btn" data-pos="DEF">DEF</button>
         <button class="filter-btn" data-pos="MID">MID</button>
         <button class="filter-btn" data-pos="FWD">FWD</button>
+      </div>
+      <div class="sort-group">
+        <button class="sort-btn active" data-sort="alpha">A–Z</button>
+        <button class="sort-btn" data-sort="pos">Position</button>
       </div>
     </div>
     <div class="count-label" id="count-label"></div>
@@ -197,375 +185,25 @@ header{background:var(--ink);border-bottom:2px solid var(--gold);position:sticky
 </div>
 
 <script>
-const PLAYERS = [
+// ── Data ────────────────────────────────────────────────────
+const PLAYERS_RAW = [
   {
-    "name": "Gianluigi Buffon",
-    "nationality": "Italian",
-    "position": "GK",
-    "peak_years": "2002–2007",
-    "best_club": "Juventus",
-    "notes": "Italy's all-time great; 2006 World Cup winner; played until 45",
-    "image_file": "gianluigi_buffon.png"
-  },
-  {
-    "name": "Iker Casillas",
-    "nationality": "Spanish",
-    "position": "GK",
-    "peak_years": "2008–2012",
-    "best_club": "Real Madrid",
-    "notes": "Two Euros, one World Cup; hands of steel",
-    "image_file": "iker_casillas.png"
-  },
-  {
-    "name": "Manuel Neuer",
-    "nationality": "German",
-    "position": "GK",
-    "peak_years": "2013–2016",
-    "best_club": "Bayern Munich",
-    "notes": "Redefined the sweeper-keeper; 2014 WC winner",
-    "image_file": "manuel_neuer.png"
-  },
-  {
-    "name": "Edwin van der Sar",
-    "nationality": "Dutch",
-    "position": "GK",
-    "peak_years": "2005–2011",
-    "best_club": "Manchester United",
-    "notes": "UCL 2008 winner; commanding presence for a decade",
-    "image_file": "edwin_van_der_sar.png"
-  },
-  {
-    "name": "Petr Čech",
-    "nationality": "Czech",
-    "position": "GK",
-    "peak_years": "2004–2012",
-    "best_club": "Chelsea",
-    "notes": "Premier League's most dominant GK of his era",
-    "image_file": "petr_cech.png"
-  },
-  {
-    "name": "Thibaut Courtois",
-    "nationality": "Belgian",
-    "position": "GK",
-    "peak_years": "2017–2024",
-    "best_club": "Real Madrid",
-    "notes": "UCL 2022; Golden Glove WC 2018; best in world at his peak",
-    "image_file": "thibaut_courtois.png"
-  },
-  {
-    "name": "David de Gea",
-    "nationality": "Spanish",
-    "position": "GK",
-    "peak_years": "2011–2019",
-    "best_club": "Manchester United",
-    "notes": "Kept United afloat for a decade; shot-stopper of his generation",
-    "image_file": "david_de_gea.png"
-  },
-  {
-    "name": "Dida",
+    "name": "Adriano",
     "nationality": "Brazilian",
-    "position": "GK",
+    "position": "ST",
     "peak_years": "2003–2007",
-    "best_club": "AC Milan",
-    "notes": "UCL 2003 & 2007 winner; Brazil's no.1",
+    "best_club": "Inter Milan",
+    "notes": "The Emperor; one of the most feared strikers of the mid-2000s",
     "image_file": null
   },
   {
-    "name": "Víctor Valdés",
-    "nationality": "Spanish",
-    "position": "GK",
-    "peak_years": "2004–2012",
-    "best_club": "Barcelona",
-    "notes": "Three consecutive UCL titles with Pep's Barça",
-    "image_file": null
-  },
-  {
-    "name": "Alisson Becker",
-    "nationality": "Brazilian",
-    "position": "GK",
-    "peak_years": "2018–2023",
-    "best_club": "Liverpool",
-    "notes": "UCL 2019, PL 2020 winner; scored a last-minute header",
-    "image_file": null
-  },
-  {
-    "name": "Marc-André ter Stegen",
-    "nationality": "German",
-    "position": "GK",
-    "peak_years": "2014–2023",
-    "best_club": "Barcelona",
-    "notes": "One of the finest ball-playing goalkeepers ever",
-    "image_file": null
-  },
-  {
-    "name": "Gigi Donnarumma",
-    "nationality": "Italian",
-    "position": "GK",
-    "peak_years": "2020–2026",
-    "best_club": "PSG",
-    "notes": "Euro 2020 Player of Tournament; Italy's heir to Buffon",
-    "image_file": null
-  },
-  {
-    "name": "Peter Schmeichel",
-    "nationality": "Danish",
-    "position": "GK",
-    "peak_years": "1990–2003",
-    "best_club": "Manchester United",
-    "notes": "Arguably the greatest GK in Premier League history",
-    "image_file": null
-  },
-  {
-    "name": "Oliver Kahn",
-    "nationality": "German",
-    "position": "GK",
-    "peak_years": "1998–2006",
-    "best_club": "Bayern Munich",
-    "notes": "2002 WC Golden Glove; the most aggressive GK of his era",
-    "image_file": null
-  },
-  {
-    "name": "Cafu",
-    "nationality": "Brazilian",
-    "position": "RB",
-    "peak_years": "1994–2006",
-    "best_club": "AC Milan",
-    "notes": "Greatest RB ever; two World Cup finals",
-    "image_file": "cafu.png"
-  },
-  {
-    "name": "Dani Alves",
-    "nationality": "Brazilian",
-    "position": "RB",
-    "peak_years": "2008–2016",
-    "best_club": "Barcelona",
-    "notes": "Most decorated player in football history",
-    "image_file": "dani_alves.png"
-  },
-  {
-    "name": "Philipp Lahm",
-    "nationality": "German",
-    "position": "RB",
-    "peak_years": "2010–2014",
-    "best_club": "Bayern Munich",
-    "notes": "2014 WC winner; the most complete fullback ever",
-    "image_file": "philipp_lahm.png"
-  },
-  {
-    "name": "Joshua Kimmich",
-    "nationality": "German",
-    "position": "RB",
-    "peak_years": "2019–2024",
-    "best_club": "Bayern Munich",
-    "notes": "Modern box-to-box hybrid; elite in both RB and CM",
-    "image_file": "joshua_kimmich.png"
-  },
-  {
-    "name": "Achraf Hakimi",
-    "nationality": "Moroccan",
-    "position": "RB",
-    "peak_years": "2021–2026",
-    "best_club": "PSG",
-    "notes": "One of the fastest and most dynamic RBs in modern game",
-    "image_file": "achraf_hakimi.png"
-  },
-  {
-    "name": "Trent Alexander-Arnold",
-    "nationality": "English",
-    "position": "RB",
-    "peak_years": "2019–2026",
-    "best_club": "Liverpool",
-    "notes": "Revolutionary passing RB; UCL & PL winner",
-    "image_file": "trent_alexander_arnold.png"
-  },
-  {
-    "name": "Paolo Maldini",
-    "nationality": "Italian",
-    "position": "CB",
-    "peak_years": "1995–2007",
-    "best_club": "AC Milan",
-    "notes": "Greatest defender ever; five UCL titles; pure elegance",
-    "image_file": null
-  },
-  {
-    "name": "Fabio Cannavaro",
-    "nationality": "Italian",
-    "position": "CB",
-    "peak_years": "2004–2008",
-    "best_club": "Real Madrid",
-    "notes": "2006 Ballon d'Or; World Cup-winning captain",
-    "image_file": "fabio_cannavaro.png"
-  },
-  {
-    "name": "Carles Puyol",
-    "nationality": "Spanish",
-    "position": "CB",
-    "peak_years": "2004–2012",
-    "best_club": "Barcelona",
-    "notes": "Warrior captain of Spain's golden generation",
-    "image_file": "carles_puyol.png"
-  },
-  {
-    "name": "Rio Ferdinand",
-    "nationality": "English",
-    "position": "CB",
-    "peak_years": "2002–2011",
-    "best_club": "Manchester United",
-    "notes": "Premier League's most composed CB of his era",
-    "image_file": "rio_ferdinand.png"
-  },
-  {
-    "name": "John Terry",
-    "nationality": "English",
-    "position": "CB",
-    "peak_years": "2004–2012",
-    "best_club": "Chelsea",
-    "notes": "Five PL titles; hardest-to-beat defender of his gen",
-    "image_file": "john_terry.png"
-  },
-  {
-    "name": "Thiago Silva",
-    "nationality": "Brazilian",
-    "position": "CB",
-    "peak_years": "2012–2022",
-    "best_club": "PSG / Chelsea",
-    "notes": "World-class for 15 years; WC finalist 2022",
-    "image_file": "thiago_silva.png"
-  },
-  {
-    "name": "Sergio Ramos",
-    "nationality": "Spanish",
-    "position": "CB",
-    "peak_years": "2008–2021",
-    "best_club": "Real Madrid",
-    "notes": "Four UCL, two Euros, one WC; 185 caps for Spain",
-    "image_file": "sergio_ramos.png"
-  },
-  {
-    "name": "Virgil van Dijk",
-    "nationality": "Dutch",
-    "position": "CB",
-    "peak_years": "2018–2022",
-    "best_club": "Liverpool",
-    "notes": "Transformed Liverpool's defence; UCL & PL winner",
-    "image_file": "virgil_van_dijk.png"
-  },
-  {
-    "name": "Raphaël Varane",
-    "nationality": "French",
-    "position": "CB",
-    "peak_years": "2018–2022",
-    "best_club": "Real Madrid",
-    "notes": "Four UCL titles; World Cup 2018 winner",
-    "image_file": "raphael_varane.png"
-  },
-  {
-    "name": "Giorgio Chiellini",
-    "nationality": "Italian",
-    "position": "CB",
-    "peak_years": "2012–2021",
-    "best_club": "Juventus",
-    "notes": "Defensive rock; nine Serie A titles; Euro 2020 winner",
-    "image_file": "giorgio_chiellini.png"
-  },
-  {
-    "name": "Nemanja Vidić",
-    "nationality": "Serbian",
-    "position": "CB",
-    "peak_years": "2006–2014",
-    "best_club": "Manchester United",
-    "notes": "Feared by every striker in England; five PL titles",
-    "image_file": "nemanja_vidic.png"
-  },
-  {
-    "name": "Kalidou Koulibaly",
-    "nationality": "Senegalese",
-    "position": "CB",
-    "peak_years": "2016–2022",
-    "best_club": "Napoli",
-    "notes": "Best African CB of his generation",
-    "image_file": "kalidou_koulibaly.png"
-  },
-  {
-    "name": "Mats Hummels",
-    "nationality": "German",
-    "position": "CB",
-    "peak_years": "2012–2019",
-    "best_club": "Borussia Dortmund",
-    "notes": "2014 WC winner; UCL finalist twice",
-    "image_file": "mats_hummels.png"
-  },
-  {
-    "name": "Franz Beckenbauer",
-    "nationality": "German",
-    "position": "CB",
-    "peak_years": "1965–1983",
-    "best_club": "Bayern Munich",
-    "notes": "The Kaiser; libero pioneer; WC winner as player and manager",
-    "image_file": "franz_beckenbauer.png"
-  },
-  {
-    "name": "David Luiz",
-    "nationality": "Brazilian",
-    "position": "CB",
-    "peak_years": "2012–2019",
-    "best_club": "Chelsea / PSG",
-    "notes": "Unorthodox brilliance; UCL 2012; Ligue 1 winner",
-    "image_file": "david_luiz.png"
-  },
-  {
-    "name": "Matthijs de Ligt",
-    "nationality": "Dutch",
-    "position": "CB",
-    "peak_years": "2019–2026",
-    "best_club": "Bayern Munich",
-    "notes": "Commanding next-gen CB; Serie A & Bundesliga winner",
-    "image_file": null
-  },
-  {
-    "name": "William Saliba",
-    "nationality": "French",
-    "position": "CB",
-    "peak_years": "2022–2026",
-    "best_club": "Arsenal",
-    "notes": "One of the finest young CBs of the modern era",
-    "image_file": null
-  },
-  {
-    "name": "Roberto Carlos",
-    "nationality": "Brazilian",
-    "position": "LB",
-    "peak_years": "1994–2006",
-    "best_club": "Real Madrid",
-    "notes": "Greatest attacking LB ever; the free kick that defied physics",
-    "image_file": "roberto_carlos.png"
-  },
-  {
-    "name": "Ashley Cole",
-    "nationality": "English",
-    "position": "LB",
-    "peak_years": "2004–2012",
-    "best_club": "Chelsea",
-    "notes": "Best LB England ever produced; three PL titles",
-    "image_file": "ashley_cole.png"
-  },
-  {
-    "name": "Patrice Evra",
-    "nationality": "French",
-    "position": "LB",
-    "peak_years": "2006–2014",
-    "best_club": "Manchester United",
-    "notes": "UCL 2008 winner; dominant one-club man at Old Trafford",
-    "image_file": "patrice_evra.png"
-  },
-  {
-    "name": "Marcelo",
-    "nationality": "Brazilian",
-    "position": "LB",
-    "peak_years": "2012–2018",
-    "best_club": "Real Madrid",
-    "notes": "Four UCL titles; most decorated LB of his era",
-    "image_file": "marcelo.png"
+    "name": "Sergio Agüero",
+    "nationality": "Argentine",
+    "position": "ST",
+    "peak_years": "2011–2021",
+    "best_club": "Manchester City",
+    "notes": "93:20; five PL titles; City's all-time top scorer",
+    "image_file": "sergio_aguero.png"
   },
   {
     "name": "Jordi Alba",
@@ -577,49 +215,22 @@ const PLAYERS = [
     "image_file": "jordi_alba.png"
   },
   {
-    "name": "Andrew Robertson",
-    "nationality": "Scottish",
-    "position": "LB",
-    "peak_years": "2018–2022",
-    "best_club": "Liverpool",
-    "notes": "UCL and PL winner; best LB in world 2019",
-    "image_file": "andrew_robertson.png"
-  },
-  {
-    "name": "Theo Hernández",
-    "nationality": "French",
-    "position": "LB",
-    "peak_years": "2021–2026",
-    "best_club": "AC Milan",
-    "notes": "Serie A title 2022; France's first-choice LB",
-    "image_file": null
-  },
-  {
-    "name": "Alphonso Davies",
-    "nationality": "Canadian",
-    "position": "LB",
-    "peak_years": "2019–2026",
-    "best_club": "Bayern Munich",
-    "notes": "Fastest player in the world; four Bundesliga titles",
-    "image_file": null
-  },
-  {
-    "name": "Claude Makélélé",
-    "nationality": "French",
-    "position": "DM",
-    "peak_years": "2000–2006",
-    "best_club": "Real Madrid",
-    "notes": "Invented the holding mid role that bears his name",
-    "image_file": "claude_makelele.png"
-  },
-  {
-    "name": "Patrick Vieira",
-    "nationality": "French",
+    "name": "Thiago Alcántara",
+    "nationality": "Spanish",
     "position": "CM",
-    "peak_years": "2000–2005",
-    "best_club": "Arsenal",
-    "notes": "Invincibles captain; physical and technical midfield mastery",
-    "image_file": "patrick_vieira.png"
+    "peak_years": "2013–2022",
+    "best_club": "Bayern / Liverpool",
+    "notes": "One of the most technically gifted midfielders ever",
+    "image_file": null
+  },
+  {
+    "name": "Trent Alexander-Arnold",
+    "nationality": "English",
+    "position": "RB",
+    "peak_years": "2019–2026",
+    "best_club": "Liverpool",
+    "notes": "Revolutionary passing RB; UCL & PL winner",
+    "image_file": "trent_alexander_arnold.png"
   },
   {
     "name": "Xabi Alonso",
@@ -627,179 +238,71 @@ const PLAYERS = [
     "position": "CM",
     "peak_years": "2008–2016",
     "best_club": "Real Madrid",
-    "notes": "Perfect passer; WC & two Euros winner; coach of the year 2024",
+    "notes": "Perfect passer; WC & two Euros; Coach of the Year 2024",
     "image_file": "xabi_alonso.png"
   },
   {
-    "name": "Andrea Pirlo",
-    "nationality": "Italian",
-    "position": "CM",
-    "peak_years": "2006–2015",
-    "best_club": "Juventus",
-    "notes": "The regista; 2006 WC winner; most elegant midfielder ever",
-    "image_file": "andrea_pirlo.png"
-  },
-  {
-    "name": "Sergio Busquets",
-    "nationality": "Spanish",
-    "position": "DM",
-    "peak_years": "2009–2022",
-    "best_club": "Barcelona",
-    "notes": "Two Euros, one WC; tactical heart of Spain for 13 years",
-    "image_file": "sergio_busquets.png"
-  },
-  {
-    "name": "N'Golo Kanté",
-    "nationality": "French",
-    "position": "CM",
-    "peak_years": "2016–2022",
-    "best_club": "Chelsea",
-    "notes": "Two PL, UCL, WC 2018; covered every blade of grass on the pitch",
-    "image_file": "ngolo_kante.png"
-  },
-  {
-    "name": "Luka Modrić",
-    "nationality": "Croatian",
-    "position": "CM",
-    "peak_years": "2016–2022",
-    "best_club": "Real Madrid",
-    "notes": "2018 Ballon d'Or; broke the Messi/Ronaldo duopoly",
-    "image_file": "luka_modric.png"
-  },
-  {
-    "name": "Toni Kroos",
-    "nationality": "German",
-    "position": "CM",
-    "peak_years": "2013–2024",
-    "best_club": "Real Madrid",
-    "notes": "Four UCL titles; 2014 WC; metronomic passing machine",
-    "image_file": "toni_kroos.png"
-  },
-  {
-    "name": "Paul Scholes",
-    "nationality": "English",
-    "position": "CM",
-    "peak_years": "2000–2011",
-    "best_club": "Manchester United",
-    "notes": "One of the finest passers the game has ever seen",
-    "image_file": "paul_scholes.png"
-  },
-  {
-    "name": "Steven Gerrard",
-    "nationality": "English",
-    "position": "CM",
-    "peak_years": "2005–2015",
-    "best_club": "Liverpool",
-    "notes": "UCL 2005; iconic one-club captain; almost won everything",
-    "image_file": "steven_gerrard.png"
-  },
-  {
-    "name": "Frank Lampard",
-    "nationality": "English",
-    "position": "CM",
-    "peak_years": "2004–2013",
-    "best_club": "Chelsea",
-    "notes": "Most goals by a midfielder in Premier League history",
-    "image_file": "frank_lampard.png"
-  },
-  {
-    "name": "Yaya Touré",
-    "nationality": "Ivorian",
-    "position": "CM",
-    "peak_years": "2011–2016",
-    "best_club": "Manchester City",
-    "notes": "Dominant box-to-box; two PL titles; AFCON 2015",
-    "image_file": "yaya_toure.png"
-  },
-  {
-    "name": "Casemiro",
+    "name": "Dani Alves",
     "nationality": "Brazilian",
-    "position": "DM",
-    "peak_years": "2016–2022",
-    "best_club": "Real Madrid",
-    "notes": "Three straight UCL titles as the defensive anchor",
-    "image_file": "casemiro.png"
-  },
-  {
-    "name": "Frenkie de Jong",
-    "nationality": "Dutch",
-    "position": "CM",
-    "peak_years": "2019–2024",
+    "position": "RB",
+    "peak_years": "2008–2016",
     "best_club": "Barcelona",
-    "notes": "Technical excellence; finest Dutch midfielder of his gen",
-    "image_file": "frenkie_de_jong.png"
+    "notes": "Most decorated footballer in history",
+    "image_file": "dani_alves.png"
   },
   {
-    "name": "Jude Bellingham",
-    "nationality": "English",
-    "position": "CM",
-    "peak_years": "2023–2026",
-    "best_club": "Real Madrid",
-    "notes": "UCL 2024 winner; most complete young midfielder ever",
-    "image_file": "jude_bellingham.png"
+    "name": "Pierre-Emerick Aubameyang",
+    "nationality": "Gabonese",
+    "position": "ST",
+    "peak_years": "2016–2021",
+    "best_club": "Arsenal / Barcelona",
+    "notes": "PL Golden Boot 2019; clinical and explosive finisher",
+    "image_file": "pierre_emerick_aubameyang.png"
   },
   {
-    "name": "Pedri",
-    "nationality": "Spanish",
-    "position": "CM",
-    "peak_years": "2021–2026",
-    "best_club": "Barcelona",
-    "notes": "Euro 2024 winner; Xavi's heir; football IQ off the charts",
-    "image_file": "pedri.png"
+    "name": "Roberto Ayala",
+    "nationality": "Argentine",
+    "position": "CB",
+    "peak_years": "1998–2006",
+    "best_club": "Valencia",
+    "notes": "Argentina captain; one of the finest CBs of the 2000s",
+    "image_file": null
   },
   {
-    "name": "Declan Rice",
-    "nationality": "English",
-    "position": "DM",
-    "peak_years": "2022–2026",
-    "best_club": "Arsenal",
-    "notes": "England's best midfielder in a generation",
-    "image_file": "declan_rice.png"
-  },
-  {
-    "name": "Ilkay Gündogan",
-    "nationality": "German",
-    "position": "CM",
-    "peak_years": "2019–2023",
-    "best_club": "Manchester City",
-    "notes": "Treble winner 2023; quietly one of the most intelligent mids",
-    "image_file": "ilkay_gundogan.png"
-  },
-  {
-    "name": "Andrés Iniesta",
-    "nationality": "Spanish",
+    "name": "Roberto Baggio",
+    "nationality": "Italian",
     "position": "AM",
-    "peak_years": "2008–2018",
-    "best_club": "Barcelona",
-    "notes": "WC 2010 final goal; three UCL; the most graceful player",
-    "image_file": "andres_iniesta.png"
+    "peak_years": "1993–2004",
+    "best_club": "AC Milan / Juventus",
+    "notes": "1993 Ballon d'Or; 1994 WC finalist; Il Divin Codino",
+    "image_file": "roberto_baggio.png"
   },
   {
-    "name": "Xavi",
-    "nationality": "Spanish",
-    "position": "CM",
-    "peak_years": "2006–2015",
-    "best_club": "Barcelona",
-    "notes": "The metronome of the greatest club and country of an era",
-    "image_file": "xavi.png"
+    "name": "Gareth Bale",
+    "nationality": "Welsh",
+    "position": "RW",
+    "peak_years": "2012–2018",
+    "best_club": "Real Madrid",
+    "notes": "UCL final bicycle kick; four UCL medals",
+    "image_file": "gareth_bale.png"
   },
   {
-    "name": "Bastian Schweinsteiger",
+    "name": "Franz Beckenbauer",
     "nationality": "German",
-    "position": "CM",
-    "peak_years": "2012–2016",
+    "position": "CB",
+    "peak_years": "1965–1983",
     "best_club": "Bayern Munich",
-    "notes": "UCL 2013; 2014 WC warrior; defining mid of his era",
-    "image_file": "bastian_schweinsteiger.png"
+    "notes": "The Kaiser; libero pioneer; WC winner as player and coach",
+    "image_file": "franz_beckenbauer.png"
   },
   {
-    "name": "Arturo Vidal",
-    "nationality": "Chilean",
-    "position": "CM",
-    "peak_years": "2012–2019",
-    "best_club": "Juventus / Bayern",
-    "notes": "More trophies than any player of his generation",
-    "image_file": "arturo_vidal.png"
+    "name": "Alisson Becker",
+    "nationality": "Brazilian",
+    "position": "GK",
+    "peak_years": "2018–2023",
+    "best_club": "Liverpool",
+    "notes": "UCL 2019 & PL 2020; scored a last-minute header at Bolton",
+    "image_file": "alisson_becker.png"
   },
   {
     "name": "David Beckham",
@@ -811,13 +314,283 @@ const PLAYERS = [
     "image_file": "david_beckham.png"
   },
   {
-    "name": "Angel Di María",
+    "name": "Jude Bellingham",
+    "nationality": "English",
+    "position": "CM",
+    "peak_years": "2023–2026",
+    "best_club": "Real Madrid",
+    "notes": "UCL 2024; most complete young midfielder ever",
+    "image_file": "jude_bellingham.png"
+  },
+  {
+    "name": "Karim Benzema",
+    "nationality": "French",
+    "position": "ST",
+    "peak_years": "2021–2023",
+    "best_club": "Real Madrid",
+    "notes": "2022 Ballon d'Or; UCL 2022 hat-trick vs Man City",
+    "image_file": "karim_benzema.png"
+  },
+  {
+    "name": "Dimitar Berbatov",
+    "nationality": "Bulgarian",
+    "position": "ST",
+    "peak_years": "2006–2014",
+    "best_club": "Manchester United",
+    "notes": "One of the most technically gifted strikers in PL history",
+    "image_file": "dimitar_berbatov.png"
+  },
+  {
+    "name": "George Best",
+    "nationality": "Northern Irish",
+    "position": "LW",
+    "peak_years": "1966–1974",
+    "best_club": "Manchester United",
+    "notes": "'He had it all'; greatest British player; 1968 Ballon d'Or",
+    "image_file": null
+  },
+  {
+    "name": "Kevin De Bruyne",
+    "nationality": "Belgian",
+    "position": "AM",
+    "peak_years": "2017–2026",
+    "best_club": "Manchester City",
+    "notes": "Best passer in modern football; Treble winner 2023",
+    "image_file": "kevin_de_bruyne.png"
+  },
+  {
+    "name": "Gianluigi Buffon",
+    "nationality": "Italian",
+    "position": "GK",
+    "peak_years": "2002–2007",
+    "best_club": "Juventus",
+    "notes": "2006 WC winner; played at elite level until 45",
+    "image_file": "gianluigi_buffon.png"
+  },
+  {
+    "name": "Sergio Busquets",
+    "nationality": "Spanish",
+    "position": "DM",
+    "peak_years": "2009–2022",
+    "best_club": "Barcelona",
+    "notes": "Two Euros, one WC; tactical heart of Spain for 13 years",
+    "image_file": "sergio_busquets.png"
+  },
+  {
+    "name": "Cafu",
+    "nationality": "Brazilian",
+    "position": "RB",
+    "peak_years": "1994–2006",
+    "best_club": "AC Milan",
+    "notes": "Greatest RB ever; two World Cup finals",
+    "image_file": "cafu.png"
+  },
+  {
+    "name": "Fabio Cannavaro",
+    "nationality": "Italian",
+    "position": "CB",
+    "peak_years": "2004–2008",
+    "best_club": "Real Madrid",
+    "notes": "2006 Ballon d'Or; World Cup-winning captain",
+    "image_file": "fabio_cannavaro.png"
+  },
+  {
+    "name": "Roberto Carlos",
+    "nationality": "Brazilian",
+    "position": "LB",
+    "peak_years": "1994–2006",
+    "best_club": "Real Madrid",
+    "notes": "Greatest attacking LB ever; the free kick that defied physics",
+    "image_file": "roberto_carlos.png"
+  },
+  {
+    "name": "Casemiro",
+    "nationality": "Brazilian",
+    "position": "DM",
+    "peak_years": "2016–2022",
+    "best_club": "Real Madrid",
+    "notes": "Three straight UCL as the defensive anchor",
+    "image_file": "casemiro.png"
+  },
+  {
+    "name": "Iker Casillas",
+    "nationality": "Spanish",
+    "position": "GK",
+    "peak_years": "2008–2012",
+    "best_club": "Real Madrid",
+    "notes": "Two Euros, one WC; hands of a legend",
+    "image_file": "iker_casillas.png"
+  },
+  {
+    "name": "Giorgio Chiellini",
+    "nationality": "Italian",
+    "position": "CB",
+    "peak_years": "2012–2021",
+    "best_club": "Juventus",
+    "notes": "Nine Serie A titles; Euro 2020 winner",
+    "image_file": "giorgio_chiellini.png"
+  },
+  {
+    "name": "Ashley Cole",
+    "nationality": "English",
+    "position": "LB",
+    "peak_years": "2004–2012",
+    "best_club": "Chelsea",
+    "notes": "Best LB England ever produced; three PL titles",
+    "image_file": "ashley_cole.png"
+  },
+  {
+    "name": "Alessandro Costacurta",
+    "nationality": "Italian",
+    "position": "CB",
+    "peak_years": "1992–2007",
+    "best_club": "AC Milan",
+    "notes": "Six Scudetti; three UCL; Maldini's defensive partner",
+    "image_file": null
+  },
+  {
+    "name": "Thibaut Courtois",
+    "nationality": "Belgian",
+    "position": "GK",
+    "peak_years": "2017–2024",
+    "best_club": "Real Madrid",
+    "notes": "UCL 2022; Golden Glove WC 2018",
+    "image_file": "thibaut_courtois.png"
+  },
+  {
+    "name": "Hernan Crespo",
     "nationality": "Argentine",
-    "position": "LM",
-    "peak_years": "2014–2022",
+    "position": "ST",
+    "peak_years": "1996–2008",
+    "best_club": "Chelsea / AC Milan",
+    "notes": "UCL finalist 2005; prolific across Europe",
+    "image_file": "hernan_crespo.png"
+  },
+  {
+    "name": "Johan Cruyff",
+    "nationality": "Dutch",
+    "position": "AM",
+    "peak_years": "1965–1984",
+    "best_club": "Barcelona",
+    "notes": "Total football originator; three Ballon d'Ors; shaped the game",
+    "image_file": "johan_cruyff.png"
+  },
+  {
+    "name": "Alphonso Davies",
+    "nationality": "Canadian",
+    "position": "LB",
+    "peak_years": "2019–2026",
+    "best_club": "Bayern Munich",
+    "notes": "Fastest player in world; four Bundesliga titles",
+    "image_file": "alphonso_davies.png"
+  },
+  {
+    "name": "Deco",
+    "nationality": "Portuguese",
+    "position": "AM",
+    "peak_years": "2004–2008",
+    "best_club": "Barcelona",
+    "notes": "UCL 2006; Porto treble 2003; genius across two eras",
+    "image_file": "deco.png"
+  },
+  {
+    "name": "Ousmane Dembélé",
+    "nationality": "French",
+    "position": "LW",
+    "peak_years": "2021–2026",
+    "best_club": "Barcelona / PSG",
+    "notes": "Euro 2024 finalist; finally delivering on enormous potential",
+    "image_file": "ousmane_dembele.png"
+  },
+  {
+    "name": "Dida",
+    "nationality": "Brazilian",
+    "position": "GK",
+    "peak_years": "2003–2007",
+    "best_club": "AC Milan",
+    "notes": "UCL 2003 & 2007 winner; Brazil's no.1",
+    "image_file": null
+  },
+  {
+    "name": "Virgil van Dijk",
+    "nationality": "Dutch",
+    "position": "CB",
+    "peak_years": "2018–2022",
+    "best_club": "Liverpool",
+    "notes": "Transformed Liverpool's defence; UCL & PL winner",
+    "image_file": "virgil_van_dijk.png"
+  },
+  {
+    "name": "Gianluigi Donnarumma",
+    "nationality": "Italian",
+    "position": "GK",
+    "peak_years": "2020–2026",
     "best_club": "PSG",
-    "notes": "WC 2022 winner; UCL 2014 MOTM; still world-class at 34",
-    "image_file": "angel_di_maria.png"
+    "notes": "Euro 2020 Player of Tournament; Italy's heir to Buffon",
+    "image_file": "gianluigi_donnarumma.png"
+  },
+  {
+    "name": "Didier Drogba",
+    "nationality": "Ivorian",
+    "position": "ST",
+    "peak_years": "2004–2012",
+    "best_club": "Chelsea",
+    "notes": "UCL 2012; greatest big-game striker the world has seen",
+    "image_file": "didier_drogba.png"
+  },
+  {
+    "name": "Samuel Eto'o",
+    "nationality": "Cameroonian",
+    "position": "ST",
+    "peak_years": "2004–2010",
+    "best_club": "Barcelona",
+    "notes": "Two UCL; AFCON x2; one of Africa's greatest ever",
+    "image_file": "samuel_etoo.png"
+  },
+  {
+    "name": "Patrice Evra",
+    "nationality": "French",
+    "position": "LB",
+    "peak_years": "2006–2014",
+    "best_club": "Manchester United",
+    "notes": "UCL 2008 winner; dominant one-club man",
+    "image_file": "patrice_evra.png"
+  },
+  {
+    "name": "Falcao",
+    "nationality": "Colombian",
+    "position": "ST",
+    "peak_years": "2011–2015",
+    "best_club": "Atlético Madrid",
+    "notes": "Greatest Colombian striker; Europa League king",
+    "image_file": "falcao.png"
+  },
+  {
+    "name": "Rio Ferdinand",
+    "nationality": "English",
+    "position": "CB",
+    "peak_years": "2002–2011",
+    "best_club": "Manchester United",
+    "notes": "Premier League's most composed CB of his era",
+    "image_file": "rio_ferdinand.png"
+  },
+  {
+    "name": "Bruno Fernandes",
+    "nationality": "Portuguese",
+    "position": "AM",
+    "peak_years": "2020–2024",
+    "best_club": "Manchester United",
+    "notes": "Rescued United; consistent match-winner",
+    "image_file": "bruno_fernandes.png"
+  },
+  {
+    "name": "Luis Figo",
+    "nationality": "Portuguese",
+    "position": "RW",
+    "peak_years": "2000–2006",
+    "best_club": "Real Madrid",
+    "notes": "Ballon d'Or 2000; greatest dribbler at turn of millennium",
+    "image_file": "luis_figo.png"
   },
   {
     "name": "Cesc Fàbregas",
@@ -829,6 +602,546 @@ const PLAYERS = [
     "image_file": "cesc_fabregas.png"
   },
   {
+    "name": "Gennaro Gattuso",
+    "nationality": "Italian",
+    "position": "CM",
+    "peak_years": "2002–2010",
+    "best_club": "AC Milan",
+    "notes": "UCL 2003 & 2007; WC 2006; the destroyer",
+    "image_file": "gennaro_gattuso.png"
+  },
+  {
+    "name": "David de Gea",
+    "nationality": "Spanish",
+    "position": "GK",
+    "peak_years": "2011–2019",
+    "best_club": "Manchester United",
+    "notes": "Best shot-stopper of his generation",
+    "image_file": "david_de_gea.png"
+  },
+  {
+    "name": "Steven Gerrard",
+    "nationality": "English",
+    "position": "CM",
+    "peak_years": "2005–2015",
+    "best_club": "Liverpool",
+    "notes": "UCL 2005; iconic one-club captain",
+    "image_file": "steven_gerrard.png"
+  },
+  {
+    "name": "Ryan Giggs",
+    "nationality": "Welsh",
+    "position": "LW",
+    "peak_years": "1991–2014",
+    "best_club": "Manchester United",
+    "notes": "13 PL titles; UCL 1999 & 2008; most decorated British player",
+    "image_file": "ryan_giggs.png"
+  },
+  {
+    "name": "Antoine Griezmann",
+    "nationality": "French",
+    "position": "AM",
+    "peak_years": "2016–2022",
+    "best_club": "Atlético Madrid",
+    "notes": "WC 2018 winner; Euro 2016 finalist; the model professional",
+    "image_file": "antoine_griezmann.png"
+  },
+  {
+    "name": "Ruud Gullit",
+    "nationality": "Dutch",
+    "position": "AM",
+    "peak_years": "1984–1998",
+    "best_club": "AC Milan",
+    "notes": "1987 Ballon d'Or; dreadlocked genius; total footballer",
+    "image_file": "ruud_gullit.png"
+  },
+  {
+    "name": "Ilkay Gündogan",
+    "nationality": "German",
+    "position": "CM",
+    "peak_years": "2019–2023",
+    "best_club": "Manchester City",
+    "notes": "Treble 2023; one of the most intelligent midfielders",
+    "image_file": "ilkay_gundogan.png"
+  },
+  {
+    "name": "Erling Haaland",
+    "nationality": "Norwegian",
+    "position": "ST",
+    "peak_years": "2022–2026",
+    "best_club": "Manchester City",
+    "notes": "52 goals in debut PL season; redefining what a striker can be",
+    "image_file": "erling_haaland.png"
+  },
+  {
+    "name": "Achraf Hakimi",
+    "nationality": "Moroccan",
+    "position": "RB",
+    "peak_years": "2021–2026",
+    "best_club": "PSG",
+    "notes": "Fastest RB in modern football; 2022 WC 4th place",
+    "image_file": "achraf_hakimi.png"
+  },
+  {
+    "name": "Eden Hazard",
+    "nationality": "Belgian",
+    "position": "LW",
+    "peak_years": "2014–2019",
+    "best_club": "Chelsea",
+    "notes": "Best player in the world on his day; Chelsea's greatest ever",
+    "image_file": "eden_hazard.png"
+  },
+  {
+    "name": "Thierry Henry",
+    "nationality": "French",
+    "position": "LW",
+    "peak_years": "2002–2008",
+    "best_club": "Arsenal",
+    "notes": "Arsenal legend; 226 goals; Invincibles talisman",
+    "image_file": "thierry_henry.png"
+  },
+  {
+    "name": "Theo Hernández",
+    "nationality": "French",
+    "position": "LB",
+    "peak_years": "2021–2026",
+    "best_club": "AC Milan",
+    "notes": "Serie A title 2022; France first-choice LB",
+    "image_file": "theo_hernandez.png"
+  },
+  {
+    "name": "Gonzalo Higuaín",
+    "nationality": "Argentine",
+    "position": "ST",
+    "peak_years": "2012–2018",
+    "best_club": "Juventus / Napoli",
+    "notes": "Set Serie A single-season scoring record in 2015–16",
+    "image_file": "gonzalo_higuain.png"
+  },
+  {
+    "name": "Mats Hummels",
+    "nationality": "German",
+    "position": "CB",
+    "peak_years": "2012–2019",
+    "best_club": "Borussia Dortmund",
+    "notes": "2014 WC winner; UCL finalist twice",
+    "image_file": "mats_hummels.png"
+  },
+  {
+    "name": "Zlatan Ibrahimović",
+    "nationality": "Swedish",
+    "position": "ST",
+    "peak_years": "2009–2020",
+    "best_club": "Barcelona / PSG",
+    "notes": "Scored in every major league; 500+ career goals",
+    "image_file": "zlatan_ibrahimovic.png"
+  },
+  {
+    "name": "Andrés Iniesta",
+    "nationality": "Spanish",
+    "position": "AM",
+    "peak_years": "2008–2018",
+    "best_club": "Barcelona",
+    "notes": "WC 2010 final goal; three UCL; the most graceful player",
+    "image_file": "andres_iniesta.png"
+  },
+  {
+    "name": "Filippo Inzaghi",
+    "nationality": "Italian",
+    "position": "ST",
+    "peak_years": "2000–2008",
+    "best_club": "AC Milan",
+    "notes": "UCL 2003 & 2007; the ultimate penalty-box poacher",
+    "image_file": "filippo_inzaghi.png"
+  },
+  {
+    "name": "Frenkie de Jong",
+    "nationality": "Dutch",
+    "position": "CM",
+    "peak_years": "2019–2024",
+    "best_club": "Barcelona",
+    "notes": "Technical excellence; finest Dutch midfielder of his gen",
+    "image_file": "frenkie_de_jong.png"
+  },
+  {
+    "name": "Vinicius Jr.",
+    "nationality": "Brazilian",
+    "position": "LW",
+    "peak_years": "2022–2026",
+    "best_club": "Real Madrid",
+    "notes": "UCL 2022 & 2024; best player in world 2024",
+    "image_file": "vinicius_jr.png"
+  },
+  {
+    "name": "Oliver Kahn",
+    "nationality": "German",
+    "position": "GK",
+    "peak_years": "1998–2006",
+    "best_club": "Bayern Munich",
+    "notes": "2002 WC Golden Glove; most aggressive GK of his era",
+    "image_file": null
+  },
+  {
+    "name": "Kaká",
+    "nationality": "Brazilian",
+    "position": "AM",
+    "peak_years": "2006–2009",
+    "best_club": "AC Milan",
+    "notes": "2007 Ballon d'Or; magical UCL run 2007; pure grace",
+    "image_file": "kaka.png"
+  },
+  {
+    "name": "Harry Kane",
+    "nationality": "English",
+    "position": "ST",
+    "peak_years": "2021–2026",
+    "best_club": "Bayern Munich",
+    "notes": "England all-time top scorer; most complete striker of his gen",
+    "image_file": "harry_kane.png"
+  },
+  {
+    "name": "N'Golo Kanté",
+    "nationality": "French",
+    "position": "CM",
+    "peak_years": "2016–2022",
+    "best_club": "Chelsea",
+    "notes": "Two PL, UCL, WC 2018; covered every blade of grass",
+    "image_file": "ngolo_kante.png"
+  },
+  {
+    "name": "Roy Keane",
+    "nationality": "Irish",
+    "position": "CM",
+    "peak_years": "1993–2005",
+    "best_club": "Manchester United",
+    "notes": "Fiercest captain in PL history; driven to win at all costs",
+    "image_file": "roy_keane.png"
+  },
+  {
+    "name": "Sami Khedira",
+    "nationality": "German",
+    "position": "CM",
+    "peak_years": "2011–2018",
+    "best_club": "Real Madrid / Juventus",
+    "notes": "2014 WC winner; UCL 2016; engine of German midfield",
+    "image_file": "sami_khedira.png"
+  },
+  {
+    "name": "Joshua Kimmich",
+    "nationality": "German",
+    "position": "RB",
+    "peak_years": "2019–2024",
+    "best_club": "Bayern Munich",
+    "notes": "Elite hybrid RB/CM; five Bundesliga titles",
+    "image_file": "joshua_kimmich.png"
+  },
+  {
+    "name": "Kalidou Koulibaly",
+    "nationality": "Senegalese",
+    "position": "CB",
+    "peak_years": "2016–2022",
+    "best_club": "Napoli",
+    "notes": "Best African CB of his generation",
+    "image_file": "kalidou_koulibaly.png"
+  },
+  {
+    "name": "Toni Kroos",
+    "nationality": "German",
+    "position": "CM",
+    "peak_years": "2013–2024",
+    "best_club": "Real Madrid",
+    "notes": "Four UCL; 2014 WC winner; perfect passing machine",
+    "image_file": "toni_kroos.png"
+  },
+  {
+    "name": "Alexandre Lacazette",
+    "nationality": "French",
+    "position": "ST",
+    "peak_years": "2017–2022",
+    "best_club": "Arsenal",
+    "notes": "Consistently excellent; underrated by wider audience",
+    "image_file": "alexandre_lacazette.png"
+  },
+  {
+    "name": "Philipp Lahm",
+    "nationality": "German",
+    "position": "RB",
+    "peak_years": "2010–2014",
+    "best_club": "Bayern Munich",
+    "notes": "2014 WC winner; most complete fullback ever",
+    "image_file": "philipp_lahm.png"
+  },
+  {
+    "name": "Frank Lampard",
+    "nationality": "English",
+    "position": "CM",
+    "peak_years": "2004–2013",
+    "best_club": "Chelsea",
+    "notes": "Most goals by a midfielder in PL history",
+    "image_file": "frank_lampard.png"
+  },
+  {
+    "name": "Robert Lewandowski",
+    "nationality": "Polish",
+    "position": "ST",
+    "peak_years": "2019–2023",
+    "best_club": "Bayern Munich",
+    "notes": "41 Bundesliga goals in one season; 2× FIFA Best Player",
+    "image_file": "robert_lewandowski.png"
+  },
+  {
+    "name": "Matthijs de Ligt",
+    "nationality": "Dutch",
+    "position": "CB",
+    "peak_years": "2019–2026",
+    "best_club": "Bayern Munich",
+    "notes": "Commanding next-gen CB; Serie A & Bundesliga winner",
+    "image_file": "matthijs_de_ligt.png"
+  },
+  {
+    "name": "Bixente Lizarazu",
+    "nationality": "French",
+    "position": "LB",
+    "peak_years": "1998–2004",
+    "best_club": "Bayern Munich",
+    "notes": "1998 WC & Euro 2000 winner; Bayern legend",
+    "image_file": null
+  },
+  {
+    "name": "David Luiz",
+    "nationality": "Brazilian",
+    "position": "CB",
+    "peak_years": "2012–2019",
+    "best_club": "Chelsea / PSG",
+    "notes": "Unorthodox brilliance; UCL 2012 winner",
+    "image_file": "david_luiz.png"
+  },
+  {
+    "name": "Romelu Lukaku",
+    "nationality": "Belgian",
+    "position": "ST",
+    "peak_years": "2018–2022",
+    "best_club": "Inter Milan",
+    "notes": "Serie A title 2021; most physically imposing striker of his era",
+    "image_file": "romelu_lukaku.png"
+  },
+  {
+    "name": "Claude Makélélé",
+    "nationality": "French",
+    "position": "DM",
+    "peak_years": "2000–2006",
+    "best_club": "Real Madrid",
+    "notes": "Invented the holding mid role that bears his name",
+    "image_file": "claude_makelele.png"
+  },
+  {
+    "name": "Paolo Maldini",
+    "nationality": "Italian",
+    "position": "CB",
+    "peak_years": "1995–2007",
+    "best_club": "AC Milan",
+    "notes": "Greatest defender ever; five UCL titles; pure elegance",
+    "image_file": "paolo_maldini.png"
+  },
+  {
+    "name": "Sadio Mané",
+    "nationality": "Senegalese",
+    "position": "LW",
+    "peak_years": "2018–2022",
+    "best_club": "Liverpool",
+    "notes": "UCL & PL winner; AFCON 2022; Africa's greatest",
+    "image_file": "sadio_mane.png"
+  },
+  {
+    "name": "Diego Maradona",
+    "nationality": "Argentine",
+    "position": "AM",
+    "peak_years": "1976–1997",
+    "best_club": "Various",
+    "notes": "Hand of God; Goal of the Century; the god of Argentina",
+    "image_file": "diego_maradona.png"
+  },
+  {
+    "name": "Marcelo",
+    "nationality": "Brazilian",
+    "position": "LB",
+    "peak_years": "2012–2018",
+    "best_club": "Real Madrid",
+    "notes": "Four UCL titles; most decorated LB of his era",
+    "image_file": "marcelo.png"
+  },
+  {
+    "name": "Lautaro Martínez",
+    "nationality": "Argentine",
+    "position": "ST",
+    "peak_years": "2022–2026",
+    "best_club": "Inter Milan",
+    "notes": "WC 2022 winner; Serie A 2024; deadly finisher",
+    "image_file": "lautaro_martinez.png"
+  },
+  {
+    "name": "Ángel Di María",
+    "nationality": "Argentine",
+    "position": "LM",
+    "peak_years": "2014–2022",
+    "best_club": "PSG",
+    "notes": "WC 2022 winner; UCL 2014 MOTM; still world-class at 34",
+    "image_file": "angel_di_maria.png"
+  },
+  {
+    "name": "Kylian Mbappé",
+    "nationality": "French",
+    "position": "ST",
+    "peak_years": "2018–2026",
+    "best_club": "PSG / Real Madrid",
+    "notes": "WC 2018 winner at 19; heir to the Messi/Ronaldo throne",
+    "image_file": "mbappe.png"
+  },
+  {
+    "name": "Lionel Messi",
+    "nationality": "Argentine",
+    "position": "LW",
+    "peak_years": "2009–2023",
+    "best_club": "Barcelona",
+    "notes": "Eight Ballon d'Ors; 2022 WC winner; greatest of all time",
+    "image_file": "lionel_messi.png"
+  },
+  {
+    "name": "Luka Modrić",
+    "nationality": "Croatian",
+    "position": "CM",
+    "peak_years": "2016–2022",
+    "best_club": "Real Madrid",
+    "notes": "2018 Ballon d'Or; broke the Messi/Ronaldo duopoly",
+    "image_file": "luka_modric.png"
+  },
+  {
+    "name": "Thomas Müller",
+    "nationality": "German",
+    "position": "AM",
+    "peak_years": "2010–2022",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013 & 2020; WC 2014; 10 WC goals; raumdeuter",
+    "image_file": "muller.png"
+  },
+  {
+    "name": "Ronaldo Nazário",
+    "nationality": "Brazilian",
+    "position": "ST",
+    "peak_years": "1994–2006",
+    "best_club": "Real Madrid",
+    "notes": "R9; 2002 WC Golden Boot; greatest pure striker who ever lived",
+    "image_file": "ronaldo_nazario.png"
+  },
+  {
+    "name": "Manuel Neuer",
+    "nationality": "German",
+    "position": "GK",
+    "peak_years": "2013–2016",
+    "best_club": "Bayern Munich",
+    "notes": "Redefined the sweeper-keeper; 2014 WC winner",
+    "image_file": "manuel_neuer.png"
+  },
+  {
+    "name": "Gary Neville",
+    "nationality": "English",
+    "position": "RB",
+    "peak_years": "1999–2007",
+    "best_club": "Manchester United",
+    "notes": "Eight PL titles; finest English RB of his generation",
+    "image_file": null
+  },
+  {
+    "name": "Neymar",
+    "nationality": "Brazilian",
+    "position": "LW",
+    "peak_years": "2014–2020",
+    "best_club": "Barcelona",
+    "notes": "Most expensive transfer ever; Barça treble 2015",
+    "image_file": "neymar.png"
+  },
+  {
+    "name": "Ruud van Nistelrooy",
+    "nationality": "Dutch",
+    "position": "ST",
+    "peak_years": "2001–2007",
+    "best_club": "Manchester United",
+    "notes": "150 goals in 219 games; one of the purest finishers ever",
+    "image_file": "ruud_van_nistelrooy.png"
+  },
+  {
+    "name": "Darwin Núñez",
+    "nationality": "Uruguayan",
+    "position": "ST",
+    "peak_years": "2022–2026",
+    "best_club": "Liverpool",
+    "notes": "Raw explosive power; one of the most exciting new forwards",
+    "image_file": "darwin_nunez.png"
+  },
+  {
+    "name": "Pedri",
+    "nationality": "Spanish",
+    "position": "CM",
+    "peak_years": "2021–2026",
+    "best_club": "Barcelona",
+    "notes": "Euro 2024; Xavi's heir; football IQ off the charts",
+    "image_file": "pedri.png"
+  },
+  {
+    "name": "Pele",
+    "nationality": "Brazilian",
+    "position": "AM",
+    "peak_years": "1958–1977",
+    "best_club": "Santos",
+    "notes": "Three World Cups; 1000+ goals; the eternal GOAT",
+    "image_file": "pele.png"
+  },
+  {
+    "name": "Alessandro Del Piero",
+    "nationality": "Italian",
+    "position": "AM",
+    "peak_years": "1995–2012",
+    "best_club": "Juventus",
+    "notes": "Juventus legend; UCL 1996; 290 goals in black and white",
+    "image_file": "alessandro_del_piero.png"
+  },
+  {
+    "name": "Andrea Pirlo",
+    "nationality": "Italian",
+    "position": "CM",
+    "peak_years": "2006–2015",
+    "best_club": "Juventus",
+    "notes": "The regista; 2006 WC winner; most elegant midfielder ever",
+    "image_file": "andrea_pirlo.png"
+  },
+  {
+    "name": "Carles Puyol",
+    "nationality": "Spanish",
+    "position": "CB",
+    "peak_years": "2004–2012",
+    "best_club": "Barcelona",
+    "notes": "Warrior captain of Spain's golden generation",
+    "image_file": "carles_puyol.png"
+  },
+  {
+    "name": "Sergio Ramos",
+    "nationality": "Spanish",
+    "position": "CB",
+    "peak_years": "2008–2021",
+    "best_club": "Real Madrid",
+    "notes": "Four UCL, two Euros, one WC; 185 caps",
+    "image_file": "sergio_ramos.png"
+  },
+  {
+    "name": "Raúl",
+    "nationality": "Spanish",
+    "position": "ST",
+    "peak_years": "1994–2015",
+    "best_club": "Real Madrid",
+    "notes": "Real Madrid's all-time top scorer before Ronaldo; UCL x3",
+    "image_file": "raul.png"
+  },
+  {
     "name": "Marco Reus",
     "nationality": "German",
     "position": "AM",
@@ -838,13 +1151,202 @@ const PLAYERS = [
     "image_file": "marco_reus.png"
   },
   {
-    "name": "Mesut Özil",
-    "nationality": "German",
-    "position": "AM",
-    "peak_years": "2011–2019",
+    "name": "Franck Ribéry",
+    "nationality": "French",
+    "position": "RW",
+    "peak_years": "2012–2015",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013; greatest Ballon d'Or snub of the decade",
+    "image_file": "ribery.png"
+  },
+  {
+    "name": "Declan Rice",
+    "nationality": "English",
+    "position": "DM",
+    "peak_years": "2022–2026",
     "best_club": "Arsenal",
-    "notes": "52 assists in a Bundesliga season; creator of pure genius",
-    "image_file": "mesut_ozil.png"
+    "notes": "England's best midfielder in a generation",
+    "image_file": "declan_rice.png"
+  },
+  {
+    "name": "Juan Román Riquelme",
+    "nationality": "Argentine",
+    "position": "AM",
+    "peak_years": "2000–2008",
+    "best_club": "Boca Juniors",
+    "notes": "The purist's footballer; Copa Libertadores icon",
+    "image_file": "juan_roman_riquelme.png"
+  },
+  {
+    "name": "Rivaldo",
+    "nationality": "Brazilian",
+    "position": "LW",
+    "peak_years": "1997–2004",
+    "best_club": "Barcelona",
+    "notes": "1999 Ballon d'Or; 2002 WC winner; samba genius",
+    "image_file": "rivaldo.png"
+  },
+  {
+    "name": "Arjen Robben",
+    "nationality": "Dutch",
+    "position": "RW",
+    "peak_years": "2012–2019",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013; the unstoppable cut inside and shoot",
+    "image_file": "arjen_robben.png"
+  },
+  {
+    "name": "Andrew Robertson",
+    "nationality": "Scottish",
+    "position": "LB",
+    "peak_years": "2018–2022",
+    "best_club": "Liverpool",
+    "notes": "UCL & PL winner; best LB in world 2019",
+    "image_file": "andrew_robertson.png"
+  },
+  {
+    "name": "Robinho",
+    "nationality": "Brazilian",
+    "position": "FW",
+    "peak_years": "2004–2010",
+    "best_club": "Real Madrid",
+    "notes": "Brilliant in flashes; trickster; hugely gifted",
+    "image_file": null
+  },
+  {
+    "name": "James Rodríguez",
+    "nationality": "Colombian",
+    "position": "AM",
+    "peak_years": "2014–2018",
+    "best_club": "Real Madrid",
+    "notes": "2014 WC Golden Boot; one of the most gifted to ever play",
+    "image_file": "james_rodriguez.png"
+  },
+  {
+    "name": "Ronaldinho",
+    "nationality": "Brazilian",
+    "position": "AM",
+    "peak_years": "2004–2006",
+    "best_club": "Barcelona",
+    "notes": "2005 Ballon d'Or; the most entertaining player who ever lived",
+    "image_file": "ronaldinho.png"
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "nationality": "Portuguese",
+    "position": "RW",
+    "peak_years": "2008–2018",
+    "best_club": "Real Madrid",
+    "notes": "Five Ballon d'Ors; four UCL; all-time international top scorer",
+    "image_file": "cristiano_ronaldo.png"
+  },
+  {
+    "name": "Wayne Rooney",
+    "nationality": "English",
+    "position": "ST",
+    "peak_years": "2006–2016",
+    "best_club": "Manchester United",
+    "notes": "England all-time top scorer; 253 goals for United",
+    "image_file": "wayne_rooney.png"
+  },
+  {
+    "name": "Bukayo Saka",
+    "nationality": "English",
+    "position": "RW",
+    "peak_years": "2022–2026",
+    "best_club": "Arsenal",
+    "notes": "England's best young player of his generation",
+    "image_file": "bukayo_saka.png"
+  },
+  {
+    "name": "Mohamed Salah",
+    "nationality": "Egyptian",
+    "position": "LW",
+    "peak_years": "2017–2026",
+    "best_club": "Liverpool",
+    "notes": "Four PL Golden Boots; UCL 2019; Africa's finest ever",
+    "image_file": "mohamed_salah.png"
+  },
+  {
+    "name": "William Saliba",
+    "nationality": "French",
+    "position": "CB",
+    "peak_years": "2022–2026",
+    "best_club": "Arsenal",
+    "notes": "One of the finest young CBs in the modern game",
+    "image_file": "william_saliba.png"
+  },
+  {
+    "name": "Leroy Sané",
+    "nationality": "German",
+    "position": "RW",
+    "peak_years": "2020–2023",
+    "best_club": "Bayern Munich",
+    "notes": "Electric pace; UCL 2020; world class at his peak",
+    "image_file": "leroy_sane.png"
+  },
+  {
+    "name": "Edwin van der Sar",
+    "nationality": "Dutch",
+    "position": "GK",
+    "peak_years": "2005–2011",
+    "best_club": "Manchester United",
+    "notes": "UCL 2008; commanding presence for a decade",
+    "image_file": "edwin_van_der_sar.png"
+  },
+  {
+    "name": "Peter Schmeichel",
+    "nationality": "Danish",
+    "position": "GK",
+    "peak_years": "1992–1999",
+    "best_club": "Manchester United",
+    "notes": "Greatest GK in PL history; Treble 1999",
+    "image_file": "peter_schmeichel.png"
+  },
+  {
+    "name": "Paul Scholes",
+    "nationality": "English",
+    "position": "CM",
+    "peak_years": "2000–2011",
+    "best_club": "Manchester United",
+    "notes": "One of the finest passers English football produced",
+    "image_file": "paul_scholes.png"
+  },
+  {
+    "name": "Bastian Schweinsteiger",
+    "nationality": "German",
+    "position": "CM",
+    "peak_years": "2012–2016",
+    "best_club": "Bayern Munich",
+    "notes": "UCL 2013; 2014 WC warrior; era-defining midfielder",
+    "image_file": "bastian_schweinsteiger.png"
+  },
+  {
+    "name": "Andriy Shevchenko",
+    "nationality": "Ukrainian",
+    "position": "ST",
+    "peak_years": "2000–2006",
+    "best_club": "AC Milan",
+    "notes": "2004 Ballon d'Or; devastating in his prime",
+    "image_file": "andriy_shevchenko.png"
+  },
+  {
+    "name": "Thiago Silva",
+    "nationality": "Brazilian",
+    "position": "CB",
+    "peak_years": "2012–2022",
+    "best_club": "PSG / Chelsea",
+    "notes": "World-class for 15 years; WC finalist 2022",
+    "image_file": "thiago_silva.png"
+  },
+  {
+    "name": "David Silva",
+    "nationality": "Spanish",
+    "position": "AM",
+    "peak_years": "2010–2020",
+    "best_club": "Manchester City",
+    "notes": "Four PL; two Euros; 'El Mago'; one of city's all-time greats",
+    "image_file": "david_silva.png"
   },
   {
     "name": "Wesley Sneijder",
@@ -852,43 +1354,178 @@ const PLAYERS = [
     "position": "AM",
     "peak_years": "2010–2013",
     "best_club": "Inter Milan",
-    "notes": "Treble 2010; WC finalist; robbed of Ballon d'Or 2010",
+    "notes": "Treble 2010; WC finalist; robbed of 2010 Ballon d'Or",
     "image_file": "wesley_sneijder.png"
   },
   {
-    "name": "Sami Khedira",
+    "name": "Heung-min Son",
+    "nationality": "South Korean",
+    "position": "LW",
+    "peak_years": "2018–2026",
+    "best_club": "Tottenham",
+    "notes": "Best Asian player in PL history; Golden Boot 2022",
+    "image_file": "heungmin_son.png"
+  },
+  {
+    "name": "Marc-André ter Stegen",
     "nationality": "German",
-    "position": "CM",
-    "peak_years": "2011–2018",
-    "best_club": "Real Madrid / Juventus",
-    "notes": "2014 WC winner; UCL 2016; engine of German midfield",
+    "position": "GK",
+    "peak_years": "2014–2023",
+    "best_club": "Barcelona",
+    "notes": "Finest ball-playing GK; consistent at highest level",
+    "image_file": "marc_andre_ter_stegen.png"
+  },
+  {
+    "name": "Raheem Sterling",
+    "nationality": "English",
+    "position": "RW",
+    "peak_years": "2019–2022",
+    "best_club": "Manchester City",
+    "notes": "Transformed himself into world class; five PL titles",
+    "image_file": "raheem_sterling.png"
+  },
+  {
+    "name": "Luis Suárez",
+    "nationality": "Uruguayan",
+    "position": "ST",
+    "peak_years": "2013–2016",
+    "best_club": "Barcelona",
+    "notes": "31 PL goals in one season; Ballon d'Or 3rd 2014",
+    "image_file": "suarez.png"
+  },
+  {
+    "name": "John Terry",
+    "nationality": "English",
+    "position": "CB",
+    "peak_years": "2004–2012",
+    "best_club": "Chelsea",
+    "notes": "Five PL titles; hardest-to-beat leader of his era",
+    "image_file": "john_terry.png"
+  },
+  {
+    "name": "Lilian Thuram",
+    "nationality": "French",
+    "position": "RB",
+    "peak_years": "1998–2006",
+    "best_club": "Juventus",
+    "notes": "1998 WC winner; 142 caps for France",
     "image_file": null
   },
   {
-    "name": "Roy Keane",
-    "nationality": "Irish",
-    "position": "CM",
-    "peak_years": "1993–2005",
-    "best_club": "Manchester United",
-    "notes": "The most fierce captain in PL history; driven to win at all costs",
-    "image_file": null
+    "name": "Fernando Torres",
+    "nationality": "Spanish",
+    "position": "ST",
+    "peak_years": "2007–2012",
+    "best_club": "Liverpool",
+    "notes": "Euro 2008 & WC 2010 winner; peak Torres was unstoppable",
+    "image_file": "fernando_torres.png"
   },
   {
-    "name": "Gennaro Gattuso",
+    "name": "Francesco Totti",
     "nationality": "Italian",
+    "position": "AM",
+    "peak_years": "2000–2017",
+    "best_club": "AS Roma",
+    "notes": "One-club legend; Roma's God; 2006 WC winner; Serie A artist",
+    "image_file": "francesco_totti.png"
+  },
+  {
+    "name": "Yaya Touré",
+    "nationality": "Ivorian",
     "position": "CM",
-    "peak_years": "2002–2010",
-    "best_club": "AC Milan",
-    "notes": "UCL 2003 & 2007; the destroyer; WC 2006 winner",
+    "peak_years": "2011–2016",
+    "best_club": "Manchester City",
+    "notes": "Dominant box-to-box; two PL titles; AFCON 2015",
+    "image_file": "yaya_toure.png"
+  },
+  {
+    "name": "Víctor Valdés",
+    "nationality": "Spanish",
+    "position": "GK",
+    "peak_years": "2004–2012",
+    "best_club": "Barcelona",
+    "notes": "Three consecutive UCL titles with Pep's Barça",
     "image_file": null
   },
   {
-    "name": "Sergio Almiron",
-    "nationality": "Paraguayan",
+    "name": "Raphaël Varane",
+    "nationality": "French",
+    "position": "CB",
+    "peak_years": "2018–2022",
+    "best_club": "Real Madrid",
+    "notes": "Four UCL titles; WC 2018 winner",
+    "image_file": "raphael_varane.png"
+  },
+  {
+    "name": "Arturo Vidal",
+    "nationality": "Chilean",
     "position": "CM",
-    "peak_years": "2020–2026",
-    "best_club": "Newcastle",
-    "notes": "Premier League cult hero; relentless pressing midfielder",
+    "peak_years": "2012–2019",
+    "best_club": "Juventus / Bayern",
+    "notes": "More trophies than almost any player of his generation",
+    "image_file": "arturo_vidal.png"
+  },
+  {
+    "name": "Nemanja Vidić",
+    "nationality": "Serbian",
+    "position": "CB",
+    "peak_years": "2006–2014",
+    "best_club": "Manchester United",
+    "notes": "Five PL titles; most feared CB in England",
+    "image_file": "nemanja_vidic.png"
+  },
+  {
+    "name": "Patrick Vieira",
+    "nationality": "French",
+    "position": "CM",
+    "peak_years": "2000–2005",
+    "best_club": "Arsenal",
+    "notes": "Invincibles captain; physical and technical masterclass",
+    "image_file": "patrick_vieira.png"
+  },
+  {
+    "name": "David Villa",
+    "nationality": "Spanish",
+    "position": "ST",
+    "peak_years": "2008–2012",
+    "best_club": "Barcelona",
+    "notes": "Spain all-time top scorer; WC 2010 and Euro 2008 winner",
+    "image_file": "david_villa.png"
+  },
+  {
+    "name": "Nico Williams",
+    "nationality": "Spanish",
+    "position": "LW",
+    "peak_years": "2024–2026",
+    "best_club": "Athletic Bilbao",
+    "notes": "Euro 2024 standout; blistering new talent",
+    "image_file": "nico_williams.png"
+  },
+  {
+    "name": "Xavi",
+    "nationality": "Spanish",
+    "position": "CM",
+    "peak_years": "2006–2015",
+    "best_club": "Barcelona",
+    "notes": "The metronome of the greatest club and country of an era",
+    "image_file": "xavi.png"
+  },
+  {
+    "name": "Lamine Yamal",
+    "nationality": "Spanish",
+    "position": "RW",
+    "peak_years": "2024–2026",
+    "best_club": "Barcelona",
+    "notes": "Euro 2024 standout; youngest ever to define a tournament",
+    "image_file": "lamine_yamal.png"
+  },
+  {
+    "name": "Lev Yashin",
+    "nationality": "Soviet",
+    "position": "GK",
+    "peak_years": "1954–1970",
+    "best_club": "Dynamo Moscow",
+    "notes": "Only GK to win Ballon d'Or; the Black Spider",
     "image_file": null
   },
   {
@@ -901,630 +1538,37 @@ const PLAYERS = [
     "image_file": "zinedine_zidane.png"
   },
   {
-    "name": "Ronaldinho",
-    "nationality": "Brazilian",
-    "position": "AM",
-    "peak_years": "2004–2006",
-    "best_club": "Barcelona",
-    "notes": "2005 Ballon d'Or; the most entertaining player who ever lived",
-    "image_file": "ronaldinho.png"
-  },
-  {
-    "name": "Kaká",
-    "nationality": "Brazilian",
-    "position": "AM",
-    "peak_years": "2006–2009",
-    "best_club": "AC Milan",
-    "notes": "2007 Ballon d'Or; magical UCL run; pure grace on the ball",
-    "image_file": "kaka.png"
-  },
-  {
-    "name": "Juan Román Riquelme",
-    "nationality": "Argentine",
-    "position": "AM",
-    "peak_years": "2000–2008",
-    "best_club": "Boca Juniors",
-    "notes": "The purist's footballer; Copa Libertadores icon",
-    "image_file": "juan_roman_riquelme.png"
-  },
-  {
-    "name": "Kevin De Bruyne",
-    "nationality": "Belgian",
-    "position": "AM",
-    "peak_years": "2017–2026",
-    "best_club": "Manchester City",
-    "notes": "Best passer in modern football; Treble winner 2023",
-    "image_file": "kevin_de_bruyne.png"
-  },
-  {
-    "name": "Bruno Fernandes",
-    "nationality": "Portuguese",
-    "position": "AM",
-    "peak_years": "2020–2024",
-    "best_club": "Manchester United",
-    "notes": "Rescued United single-handedly; consistent match-winner",
-    "image_file": "bruno_fernandes.png"
-  },
-  {
-    "name": "James Rodríguez",
-    "nationality": "Colombian",
-    "position": "AM",
-    "peak_years": "2014–2018",
-    "best_club": "Real Madrid",
-    "notes": "2014 WC Golden Boot; one of the most gifted to ever play",
-    "image_file": "james_rodriguez.png"
-  },
-  {
-    "name": "Deco",
-    "nationality": "Portuguese",
-    "position": "AM",
-    "peak_years": "2004–2008",
-    "best_club": "Barcelona",
-    "notes": "UCL 2006; Porto treble 2003; genius in two great eras",
-    "image_file": "deco.png"
-  },
-  {
-    "name": "Luis Figo",
-    "nationality": "Portuguese",
-    "position": "RW",
-    "peak_years": "2000–2006",
-    "best_club": "Real Madrid",
-    "notes": "Ballon d'Or 2000; greatest dribbler of the turn of millennium",
-    "image_file": "luis_figo.png"
-  },
-  {
-    "name": "David Silva",
-    "nationality": "Spanish",
-    "position": "AM",
-    "peak_years": "2010–2020",
-    "best_club": "Manchester City",
-    "notes": "Genius playmaker; four PL titles; two Euros; 'El Mago'",
-    "image_file": "david_silva.png"
-  },
-  {
-    "name": "Thomas Müller",
-    "nationality": "German",
-    "position": "AM",
-    "peak_years": "2010–2022",
-    "best_club": "Bayern Munich",
-    "notes": "UCL 2013 & 2020; WC 2014; 'raumdeuter' genius; 10 WC goals",
-    "image_file": "muller.png"
-  },
-  {
-    "name": "Cristiano Ronaldo",
-    "nationality": "Portuguese",
-    "position": "RW",
-    "peak_years": "2008–2018",
-    "best_club": "Real Madrid",
-    "notes": "Five Ballon d'Ors; four UCL; all-time international top scorer",
-    "image_file": "cristiano_ronaldo.png"
-  },
-  {
-    "name": "Arjen Robben",
-    "nationality": "Dutch",
-    "position": "RW",
-    "peak_years": "2012–2019",
-    "best_club": "Bayern Munich",
-    "notes": "UCL 2013; one move, unstoppable — cut inside and shoot",
-    "image_file": "arjen_robben.png"
-  },
-  {
-    "name": "Franck Ribéry",
-    "nationality": "French",
-    "position": "RW",
-    "peak_years": "2012–2015",
-    "best_club": "Bayern Munich",
-    "notes": "UCL 2013; greatest Ballon d'Or snub of the decade",
-    "image_file": "ribery.png"
-  },
-  {
-    "name": "Gareth Bale",
-    "nationality": "Welsh",
-    "position": "RW",
-    "peak_years": "2012–2018",
-    "best_club": "Real Madrid",
-    "notes": "UCL final bicycle kick; four UCL medals with Real",
-    "image_file": "gareth_bale.png"
-  },
-  {
-    "name": "Raheem Sterling",
-    "nationality": "English",
-    "position": "RW",
-    "peak_years": "2019–2022",
-    "best_club": "Manchester City",
-    "notes": "Transformed himself into world class; five PL titles",
-    "image_file": "raheem_sterling.png"
-  },
-  {
-    "name": "Bukayo Saka",
-    "nationality": "English",
-    "position": "RW",
-    "peak_years": "2022–2026",
-    "best_club": "Arsenal",
-    "notes": "England's best young player of his generation",
-    "image_file": "bukayo_saka.png"
-  },
-  {
-    "name": "Leroy Sané",
-    "nationality": "German",
-    "position": "RW",
-    "peak_years": "2020–2023",
-    "best_club": "Bayern Munich",
-    "notes": "Electric pace; UCL 2020 winner; world class at his peak",
-    "image_file": "leroy_sane.png"
-  },
-  {
-    "name": "Lamine Yamal",
-    "nationality": "Spanish",
-    "position": "RW",
-    "peak_years": "2024–2026",
-    "best_club": "Barcelona",
-    "notes": "Euro 2024 breakthrough; youngest ever to define a tournament",
-    "image_file": "lamine_yamal.png"
-  },
-  {
-    "name": "Rivaldo",
-    "nationality": "Brazilian",
-    "position": "LW",
-    "peak_years": "1997–2004",
-    "best_club": "Barcelona",
-    "notes": "1999 Ballon d'Or; 2002 WC winner; samba genius",
-    "image_file": "rivaldo.png"
-  },
-  {
-    "name": "Mohamed Salah",
-    "nationality": "Egyptian",
-    "position": "LW",
-    "peak_years": "2017–2026",
-    "best_club": "Liverpool",
-    "notes": "Four PL Golden Boots; UCL 2019 winner; Africa's greatest",
-    "image_file": "mohamed_salah.png"
-  },
-  {
-    "name": "Pierre-Emerick Aubameyang",
-    "nationality": "Gabonese",
-    "position": "ST",
-    "peak_years": "2016–2021",
-    "best_club": "Arsenal / Barcelona",
-    "notes": "PL Golden Boot 2019; one of the most clinical strikers",
-    "image_file": null
-  },
-  {
-    "name": "Heung-min Son",
-    "nationality": "South Korean",
-    "position": "LW",
-    "peak_years": "2018–2026",
-    "best_club": "Tottenham",
-    "notes": "Best Asian player in PL history; Golden Boot 2022",
-    "image_file": null
-  },
-  {
-    "name": "Lionel Messi",
-    "nationality": "Argentine",
-    "position": "LW",
-    "peak_years": "2009–2023",
-    "best_club": "Barcelona",
-    "notes": "Eight Ballon d'Ors; 2022 World Cup winner; greatest of all time",
-    "image_file": "lionel_messi.png"
-  },
-  {
-    "name": "Thierry Henry",
-    "nationality": "French",
-    "position": "LW",
-    "peak_years": "2002–2008",
-    "best_club": "Arsenal",
-    "notes": "Arsenal legend; 226 goals; Invincibles talisman; 1998 WC winner",
-    "image_file": "thierry_henry.png"
-  },
-  {
-    "name": "Eden Hazard",
-    "nationality": "Belgian",
-    "position": "LW",
-    "peak_years": "2014–2019",
-    "best_club": "Chelsea",
-    "notes": "Best player in the world on his day; Chelsea's greatest ever",
-    "image_file": "eden_hazard.png"
-  },
-  {
-    "name": "Sadio Mané",
-    "nationality": "Senegalese",
-    "position": "LW",
-    "peak_years": "2018–2022",
-    "best_club": "Liverpool",
-    "notes": "UCL & PL winner; AFCON 2022 winner; Africa's finest",
-    "image_file": "sadio_mane.png"
-  },
-  {
-    "name": "Neymar",
-    "nationality": "Brazilian",
-    "position": "LW",
-    "peak_years": "2014–2020",
-    "best_club": "Barcelona",
-    "notes": "Most expensive transfer ever; Barça treble 2015; electric talent",
-    "image_file": "neymar.png"
-  },
-  {
-    "name": "Nico Williams",
-    "nationality": "Spanish",
-    "position": "LW",
-    "peak_years": "2024–2026",
-    "best_club": "Athletic Bilbao",
-    "notes": "Euro 2024 standout; blistering pace; one of Europe's best",
-    "image_file": "nico_williams.png"
-  },
-  {
-    "name": "Vinicius Jr.",
-    "nationality": "Brazilian",
-    "position": "LW",
-    "peak_years": "2022–2026",
-    "best_club": "Real Madrid",
-    "notes": "UCL 2022 & 2024 winner; best player in world 2024",
-    "image_file": "vinicius_jr.png"
-  },
-  {
-    "name": "Ousmane Dembélé",
-    "nationality": "French",
-    "position": "LW",
-    "peak_years": "2021–2026",
-    "best_club": "Barcelona / PSG",
-    "notes": "Euro 2024 finalist; finally delivering on enormous potential",
-    "image_file": "ousmane_dembele.png"
-  },
-  {
-    "name": "Kylian Mbappé",
-    "nationality": "French",
-    "position": "ST",
-    "peak_years": "2018–2026",
-    "best_club": "PSG / Real Madrid",
-    "notes": "WC 2018 winner at 19; heir to the Messi/Ronaldo throne",
-    "image_file": "mbappe.png"
-  },
-  {
-    "name": "Robben",
-    "nationality": "Dutch",
-    "position": "RW",
-    "peak_years": "2012–2019",
-    "best_club": "Bayern Munich",
-    "notes": "UCL 2013",
-    "image_file": "arjen_robben.png"
-  },
-  {
-    "name": "Ryan Giggs",
-    "nationality": "Welsh",
-    "position": "LW",
-    "peak_years": "1991–2014",
-    "best_club": "Manchester United",
-    "notes": "13 PL titles; UCL 1999 & 2008; most decorated British player",
-    "image_file": null
-  },
-  {
-    "name": "Ronaldo Nazário",
-    "nationality": "Brazilian",
-    "position": "ST",
-    "peak_years": "1994–2006",
-    "best_club": "Real Madrid",
-    "notes": "R9; 2002 WC Golden Boot; greatest pure striker who ever lived",
-    "image_file": null
-  },
-  {
-    "name": "Zlatan Ibrahimović",
-    "nationality": "Swedish",
-    "position": "ST",
-    "peak_years": "2009–2020",
-    "best_club": "Barcelona / PSG",
-    "notes": "Scored in every major league; 500+ career goals; never won UCL",
-    "image_file": "zlatan_ibrahimovic.png"
-  },
-  {
-    "name": "Fernando Torres",
-    "nationality": "Spanish",
-    "position": "ST",
-    "peak_years": "2007–2012",
-    "best_club": "Liverpool",
-    "notes": "Euro 2008 & WC 2010 winner; peak Torres was unstoppable",
-    "image_file": "fernando_torres.png"
-  },
-  {
-    "name": "Didier Drogba",
-    "nationality": "Ivorian",
-    "position": "ST",
-    "peak_years": "2004–2012",
-    "best_club": "Chelsea",
-    "notes": "UCL 2012; greatest big-game striker the world has ever seen",
-    "image_file": "didier_drogba.png"
-  },
-  {
-    "name": "Wayne Rooney",
-    "nationality": "English",
-    "position": "ST",
-    "peak_years": "2006–2016",
-    "best_club": "Manchester United",
-    "notes": "England all-time top scorer; 253 goals for United",
-    "image_file": "wayne_rooney.png"
-  },
-  {
-    "name": "Samuel Eto'o",
-    "nationality": "Cameroonian",
-    "position": "ST",
-    "peak_years": "2004–2010",
-    "best_club": "Barcelona",
-    "notes": "Two UCL titles; AFCON x2; one of Africa's greatest ever",
-    "image_file": "samuel_etoo.png"
-  },
-  {
-    "name": "David Villa",
-    "nationality": "Spanish",
-    "position": "ST",
-    "peak_years": "2008–2012",
-    "best_club": "Barcelona",
-    "notes": "Spain all-time top scorer; WC 2010 and Euros 2008 winner",
-    "image_file": "david_villa.png"
-  },
-  {
-    "name": "Falcao",
-    "nationality": "Colombian",
-    "position": "ST",
-    "peak_years": "2011–2015",
-    "best_club": "Atlético Madrid",
-    "notes": "Greatest Colombian striker; Europa League king; class in boots",
-    "image_file": "falcao.png"
-  },
-  {
-    "name": "Luis Suárez",
-    "nationality": "Uruguayan",
-    "position": "ST",
-    "peak_years": "2013–2016",
-    "best_club": "Barcelona",
-    "notes": "31 PL goals in one season; Ballon d'Or 3rd 2014; fired everywhere",
-    "image_file": "suarez.png"
-  },
-  {
-    "name": "Robert Lewandowski",
-    "nationality": "Polish",
-    "position": "ST",
-    "peak_years": "2019–2023",
-    "best_club": "Bayern Munich",
-    "notes": "41 Bundesliga goals in a season; 2× FIFA Best Player award",
-    "image_file": "robert_lewandowski.png"
-  },
-  {
-    "name": "Karim Benzema",
-    "nationality": "French",
-    "position": "ST",
-    "peak_years": "2021–2023",
-    "best_club": "Real Madrid",
-    "notes": "2022 Ballon d'Or; UCL 2022 hat-trick vs Man City; a master",
-    "image_file": "karim_benzema.png"
-  },
-  {
-    "name": "Harry Kane",
-    "nationality": "English",
-    "position": "ST",
-    "peak_years": "2021–2026",
-    "best_club": "Bayern Munich",
-    "notes": "England all-time top scorer; most complete striker of his gen",
-    "image_file": null
-  },
-  {
-    "name": "Erling Haaland",
-    "nationality": "Norwegian",
-    "position": "ST",
-    "peak_years": "2022–2026",
-    "best_club": "Manchester City",
-    "notes": "52 goals in debut PL season; redefining what a striker can be",
-    "image_file": "erling_haaland.png"
-  },
-  {
-    "name": "Romelu Lukaku",
-    "nationality": "Belgian",
-    "position": "ST",
-    "peak_years": "2018–2022",
-    "best_club": "Inter Milan",
-    "notes": "Serie A title 2021; most physically imposing striker of his era",
-    "image_file": null
-  },
-  {
-    "name": "Antoine Griezmann",
-    "nationality": "French",
-    "position": "AM",
-    "peak_years": "2016–2022",
-    "best_club": "Atlético Madrid",
-    "notes": "WC 2018 winner; Euro 2016 finalist; the model professional",
-    "image_file": "antoine_griezmann.png"
-  },
-  {
-    "name": "Lautaro Martínez",
-    "nationality": "Argentine",
-    "position": "ST",
-    "peak_years": "2022–2026",
-    "best_club": "Inter Milan",
-    "notes": "WC 2022 winner; Serie A 2024; deadly and intelligent finisher",
-    "image_file": "lautaro_martinez.png"
-  },
-  {
     "name": "Julián Álvarez",
     "nationality": "Argentine",
     "position": "ST",
     "peak_years": "2022–2026",
     "best_club": "Manchester City",
-    "notes": "WC 2022; UCL 2023; tireless pressing and clinical finishing",
+    "notes": "WC 2022; UCL 2023; tireless and clinical",
     "image_file": "julian_alvarez.png"
   },
   {
-    "name": "Filippo Inzaghi",
-    "nationality": "Italian",
-    "position": "ST",
-    "peak_years": "2000–2008",
-    "best_club": "AC Milan",
-    "notes": "UCL 2003 & 2007; the ultimate penalty-box poacher",
-    "image_file": "filippo_inzaghi.png"
-  },
-  {
-    "name": "Andriy Shevchenko",
-    "nationality": "Ukrainian",
-    "position": "ST",
-    "peak_years": "2000–2006",
-    "best_club": "AC Milan",
-    "notes": "2004 Ballon d'Or; devastating in his prime; UCL 2003 winner",
-    "image_file": "andriy_shevchenko.png"
-  },
-  {
-    "name": "Ruud van Nistelrooy",
-    "nationality": "Dutch",
-    "position": "ST",
-    "peak_years": "2001–2007",
-    "best_club": "Manchester United",
-    "notes": "150 goals in 219 games; one of the purest finishers ever",
-    "image_file": "ruud_van_nistelrooy.png"
-  },
-  {
-    "name": "Sergio Agüero",
-    "nationality": "Argentine",
-    "position": "ST",
-    "peak_years": "2011–2021",
-    "best_club": "Manchester City",
-    "notes": "93:20; five PL titles; City's all-time top scorer",
-    "image_file": "sergio_aguero.png"
-  },
-  {
-    "name": "Gonzalo Higuaín",
-    "nationality": "Argentine",
-    "position": "ST",
-    "peak_years": "2012–2018",
-    "best_club": "Juventus / Napoli",
-    "notes": "Set Serie A single-season scoring record in 2015–16",
-    "image_file": null
-  },
-  {
-    "name": "Darwin Núñez",
-    "nationality": "Uruguayan",
-    "position": "ST",
-    "peak_years": "2022–2026",
-    "best_club": "Liverpool",
-    "notes": "Raw explosive power; one of the most exciting new forwards",
-    "image_file": "darwin_nunez.png"
-  },
-  {
-    "name": "Pele",
-    "nationality": "Brazilian",
-    "position": "ST",
-    "peak_years": "1958–1977",
-    "best_club": "Santos",
-    "notes": "Three World Cups; 1000+ career goals; the eternal GOAT",
-    "image_file": "pele.png"
-  },
-  {
-    "name": "Diego Maradona",
-    "nationality": "Argentine",
+    "name": "Mesut Özil",
+    "nationality": "German",
     "position": "AM",
-    "peak_years": "1976–1997",
-    "best_club": "Various",
-    "notes": "Hand of God; Goal of the Century; the god of Argentina",
-    "image_file": "diego_maradona.png"
-  },
-  {
-    "name": "Johan Cruyff",
-    "nationality": "Dutch",
-    "position": "AM",
-    "peak_years": "1965–1984",
-    "best_club": "Barcelona",
-    "notes": "Total football originator; three Ballon d'Ors; shaped the game",
-    "image_file": "johan_cruyff.png"
-  },
-  {
-    "name": "Ruud Gullit",
-    "nationality": "Dutch",
-    "position": "AM",
-    "peak_years": "1984–1998",
-    "best_club": "AC Milan",
-    "notes": "1987 Ballon d'Or; dreadlocked genius; total footballer",
-    "image_file": "ruud_gullit.png"
-  },
-  {
-    "name": "Alexandre Lacazette",
-    "nationality": "French",
-    "position": "ST",
-    "peak_years": "2017–2022",
+    "peak_years": "2011–2019",
     "best_club": "Arsenal",
-    "notes": "Underrated; consistently excellent in Premier League",
-    "image_file": "alexandre_lacazette.png"
+    "notes": "52 assists in a Bundesliga season; genius of vision",
+    "image_file": "mesut_ozil.png"
   },
   {
-    "name": "Robinho",
-    "nationality": "Brazilian",
-    "position": "FW",
-    "peak_years": "2004–2010",
-    "best_club": "Real Madrid",
-    "notes": "Brilliant in flashes; trickster; hugely talented",
-    "image_file": null
-  },
-  {
-    "name": "Francesco Totti",
-    "nationality": "Italian",
-    "position": "AM",
-    "peak_years": "2000–2017",
-    "best_club": "AS Roma",
-    "notes": "One-club legend; Roma's God; 2006 WC winner; Serie A's artist",
-    "image_file": null
-  },
-  {
-    "name": "Roberto Baggio",
-    "nationality": "Italian",
-    "position": "AM",
-    "peak_years": "1988–2004",
-    "best_club": "AC Milan / Juventus",
-    "notes": "1993 Ballon d'Or; 1994 WC finalist; 'Il Divin Codino'",
-    "image_file": null
-  },
-  {
-    "name": "Alessandro Del Piero",
-    "nationality": "Italian",
-    "position": "AM",
-    "peak_years": "1995–2012",
-    "best_club": "Juventus",
-    "notes": "Juventus legend; UCL 1996 winner; 290 goals for Juve",
-    "image_file": null
-  },
-  {
-    "name": "Adriano",
-    "nationality": "Brazilian",
-    "position": "ST",
-    "peak_years": "2003–2007",
-    "best_club": "Inter Milan",
-    "notes": "Emperor: one of the most feared strikers of the mid-2000s",
-    "image_file": null
-  },
-  {
-    "name": "Dimitar Berbatov",
-    "nationality": "Bulgarian",
-    "position": "ST",
-    "peak_years": "2006–2014",
-    "best_club": "Manchester United",
-    "notes": "One of the most technically gifted strikers ever to grace the PL",
-    "image_file": null
-  },
-  {
-    "name": "Raúl",
-    "nationality": "Spanish",
-    "position": "ST",
-    "peak_years": "1994–2015",
-    "best_club": "Real Madrid",
-    "notes": "Real Madrid's all-time top scorer before Ronaldo; UCL x3",
-    "image_file": null
-  },
-  {
-    "name": "Hernan Crespo",
-    "nationality": "Argentine",
-    "position": "ST",
-    "peak_years": "1996–2008",
-    "best_club": "Chelsea / AC Milan",
-    "notes": "UCL finalist 2005; prolific striker across Europe",
-    "image_file": null
+    "name": "Petr Čech",
+    "nationality": "Czech",
+    "position": "GK",
+    "peak_years": "2004–2012",
+    "best_club": "Chelsea",
+    "notes": "Premier League's dominant GK of his era",
+    "image_file": "petr_cech.png"
   }
 ];
 
-const POS_C = {GK:'var(--pos-gk)',DEF:'var(--pos-def)',MID:'var(--pos-mid)',FWD:'var(--pos-fwd)'};
-const POS_L = {GK:'Goalkeeper',RB:'Right Back',LB:'Left Back',CB:'Centre Back',DM:'Defensive Mid',CM:'Central Mid',AM:'Attacking Mid',RM:'Right Mid',LM:'Left Mid',RW:'Right Wing',LW:'Left Wing',ST:'Striker',FW:'Forward',SS:'Second Striker'};
+const POS_C={GK:'var(--pos-gk)',DEF:'var(--pos-def)',MID:'var(--pos-mid)',FWD:'var(--pos-fwd)'};
+const POS_L={GK:'Goalkeeper',RB:'Right Back',LB:'Left Back',CB:'Centre Back',DM:'Defensive Mid',CM:'Central Mid',AM:'Attacking Mid',RM:'Right Mid',LM:'Left Mid',RW:'Right Wing',LW:'Left Wing',ST:'Striker',FW:'Forward',SS:'Second Striker'};
+const POS_ORDER={GK:0,RB:1,LB:2,CB:3,DM:4,CM:5,AM:6,RM:7,LM:8,RW:9,LW:10,ST:11,FW:12};
 
 function grp(pos){
   if(!pos)return'MID';
@@ -1535,17 +1579,25 @@ function grp(pos){
   if(['RW','LW','ST','FW','SS'].includes(p))return'FWD';
   return'MID';
 }
+
 function ini(n){return(n||'').split(' ').map(w=>w[0]).filter(Boolean).slice(0,2).join('')}
 
+function lastName(name){const parts=(name||'').split(' ');return parts[parts.length-1].toLowerCase()}
+
+// ── Build cards ─────────────────────────────────────────────
 const grid=document.getElementById('player-grid');
 
-PLAYERS.forEach((p,i)=>{
+// Alphabetical by default (PLAYERS_RAW already sorted by last name from Python)
+PLAYERS_RAW.forEach((p,i)=>{
   const g=grp(p.position);
   const card=document.createElement('div');
   card.className='player-card';
   card.dataset.name=(p.name||'').toLowerCase();
   card.dataset.nat=(p.nationality||'').toLowerCase();
   card.dataset.pos=g;
+  card.dataset.posraw=(p.position||'').toUpperCase();
+  card.dataset.lastname=lastName(p.name);
+  card.dataset.i=i;
 
   const imgH=p.image_file
     ?`<img src="images/${p.image_file}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-placeholder\\'><div class=\\'ph-initials\\'>${ini(p.name)}</div><div class=\\'ph-pos\\'>${p.position||''}</div></div>'">`
@@ -1565,22 +1617,51 @@ PLAYERS.forEach((p,i)=>{
   grid.appendChild(card);
 });
 
-// set initial count
-document.getElementById('count-label').textContent=`${PLAYERS.length} players`;
+document.getElementById('count-label').textContent=`${PLAYERS_RAW.length} players`;
 
-let activePos='ALL',searchTerm='';
+// ── Filter + sort ────────────────────────────────────────────
+let activePos='ALL', searchTerm='', activeSort='alpha';
+
 function applyFilters(){
+  const cards=[...document.querySelectorAll('.player-card')];
+
+  // Sort
+  if(activeSort==='alpha'){
+    cards.sort((a,b)=>a.dataset.lastname.localeCompare(b.dataset.lastname));
+  } else {
+    const posGrpOrder={GK:0,DEF:1,MID:2,FWD:3};
+    cards.sort((a,b)=>{
+      const pg=posGrpOrder[a.dataset.pos]??4;
+      const qg=posGrpOrder[b.dataset.pos]??4;
+      if(pg!==qg)return pg-qg;
+      const pp=POS_ORDER[a.dataset.posraw]??99;
+      const qp=POS_ORDER[b.dataset.posraw]??99;
+      if(pp!==qp)return pp-qp;
+      return a.dataset.lastname.localeCompare(b.dataset.lastname);
+    });
+  }
+
+  // Re-append in sorted order
+  cards.forEach(c=>grid.appendChild(c));
+
+  // Filter visibility
   let n=0;
-  document.querySelectorAll('.player-card').forEach(c=>{
-    const ok=(activePos==='ALL'||c.dataset.pos===activePos)&&(!searchTerm||c.dataset.name.includes(searchTerm)||c.dataset.nat.includes(searchTerm));
+  cards.forEach(c=>{
+    const ok=(activePos==='ALL'||c.dataset.pos===activePos)
+           &&(!searchTerm||c.dataset.name.includes(searchTerm)||c.dataset.nat.includes(searchTerm));
     c.classList.toggle('hidden',!ok);
     if(ok)n++;
   });
+
   document.getElementById('empty-state').classList.toggle('show',n===0);
   document.getElementById('count-label').textContent=`${n} player${n!==1?'s':''}`;
 }
 
-document.getElementById('search').addEventListener('input',e=>{searchTerm=e.target.value.toLowerCase().trim();applyFilters()});
+document.getElementById('search').addEventListener('input',e=>{
+  searchTerm=e.target.value.toLowerCase().trim();
+  applyFilters();
+});
+
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
@@ -1590,21 +1671,30 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
   });
 });
 
+document.querySelectorAll('.sort-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeSort=btn.dataset.sort;
+    applyFilters();
+  });
+});
+
+// ── Modal ────────────────────────────────────────────────────
 function openModal(i){
-  const p=PLAYERS[i];
+  const p=PLAYERS_RAW[i];
   const g=grp(p.position);
   const col=document.getElementById('modal-img-col');
 
   if(p.image_file){
-    col.innerHTML=`<div class="modal-gold-bar"></div><img src="images/${p.image_file}" alt="${p.name}" onerror="this.parentElement.innerHTML='<div class=\\'modal-gold-bar\\'></div><div class=\\'modal-ph\\'><div class=\\'modal-ph-init\\'>${ini(p.name)}</div><div class=\\'modal-ph-label\\'>Card Coming Soon</div></div>'">`;
+    col.innerHTML=`<div class="modal-gold-bar"></div><img src="images/${p.image_file}" alt="${p.name}" onerror="this.parentElement.innerHTML='<div class=\\'modal-gold-bar\\'></div><div class=\\'modal-ph\\'><div class=\\'modal-ph-init\\'>${ini(p.name)}</div></div>'">`;
   } else {
-    col.innerHTML=`<div class="modal-gold-bar"></div><div class="modal-ph"><div class="modal-ph-init">${ini(p.name)}</div><div class="modal-ph-label">Card Coming Soon</div></div>`;
+    col.innerHTML=`<div class="modal-gold-bar"></div><div class="modal-ph"><div class="modal-ph-init">${ini(p.name)}</div></div>`;
   }
 
   const badge=document.getElementById('modal-badge');
   badge.textContent=POS_L[p.position]||p.position||'';
   badge.style.background=POS_C[g]||POS_C.MID;
-
   document.getElementById('modal-name').textContent=p.name;
   document.getElementById('modal-nat').textContent=p.nationality;
   document.getElementById('modal-nat2').textContent=p.nationality;
